@@ -21,6 +21,11 @@
     "vue-loader": "^15.7.1",
     "vue-template-compiler": "^2.6.10"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lerna run --concurrency 1 --stream precommit --since master"
+    }
+  },
   "dependencies": {
     "vue": "^2.6.10"
   }
