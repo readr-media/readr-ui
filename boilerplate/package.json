@@ -47,6 +47,5 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.6.10"
-  },
-  "gitHead": "9a3611545810184a976236b01b427f0f71a79755"
+  }
 }
