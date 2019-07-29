@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <a class="header__logo logo" :href="headerReadrUrl" target="_blank">
-      <Logo class="logo__img" :theme="'dark'" />
+      <Logo class="logo__img" :theme="'light'" />
     </a>
     <h1 class="header__title title" v-text="headerTtle" />
   </header>
