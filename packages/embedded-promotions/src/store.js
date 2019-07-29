@@ -4,6 +4,8 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 
+const debug = require('debug')('@readr-ui:embedded-promotions:store')
+
 export default new Vuex.Store({
   state: {
     headerReadrUrl: 'https://www.readr.tw',
@@ -12,6 +14,7 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_LIST(state, list) {
+      debug('SET_LIST: ', list)
       state.list = list
     }
   },
@@ -29,10 +32,12 @@ export default new Vuex.Store({
       return axios
         .get(url, { params })
         .then(res => {
+          debug(`fetch ${url} successful`)
           '_items' in res.data && commit('SET_LIST', res.data['_items'])
           return res
         })
         .catch(err => {
+          debug(`fetch ${url} fail`)
           throw err
         })
     }

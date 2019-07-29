@@ -15,12 +15,21 @@
 import ListItem from './ListItem.vue'
 import { mapState, mapActions } from 'vuex'
 
+const debug = require('debug')('@readr-ui:embedded-promotions:List.vue')
+
 export default {
   components: {
     ListItem
   },
   computed: {
     ...mapState(['list'])
+  },
+  watch: {
+    list(newValue, oldValue) {
+      debug('list mutation detected')
+      debug('old value is: ', oldValue)
+      debug('new value is: ', newValue)
+    }
   },
   beforeMount() {
     this.FETCH_SERIES()
