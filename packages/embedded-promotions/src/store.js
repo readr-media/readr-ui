@@ -15,7 +15,7 @@ export default new Vuex.Store({
   mutations: {
     SET_LIST(state, list) {
       debug('SET_LIST: ', list)
-      state.list = list
+      Vue.set(state, 'list', list)
     }
   },
   actions: {
