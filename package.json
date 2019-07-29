@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "bootstrap": "lerna bootstrap --ignore-prepublish",
+    "bootstrap": "lerna bootstrap",
     "publish-packages": "lerna publish",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
