@@ -28,7 +28,7 @@ export default {
     font-family -apple-system, Microsoft JhengHei, "Segoe UI", Roboto, Ubuntu, "Droid Sans", "Helvetica Neue", sans-serif
 
 .list-wrapper
-  padding 31px 26px
+  padding 16px
   border 2px solid #dedede
   border-top none
 </style>

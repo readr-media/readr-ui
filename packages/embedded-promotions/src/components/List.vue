@@ -79,5 +79,5 @@ export default {
   padding 0
   &__list-item
     & + &
-      margin 31px 0 0 0
+      margin 20.8px 0 0 0
 </style>

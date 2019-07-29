@@ -33,7 +33,7 @@ export default {
   background-color #444746
   display flex
   align-items center
-  padding 0 26px
+  padding 0 18px
   &__logo
     position relative
     top 12px

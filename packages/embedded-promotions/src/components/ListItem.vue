@@ -31,15 +31,15 @@ export default {
   display flex
   text-decoration none
   &__img
-    min-width 100px
-    max-width 100px
-    min-height 50px
-    max-height 50px
+    min-width 127.672px
+    max-width 127.672px
+    min-height 85.1094px
+    max-height 85.1094px
     background-color gray
     object-fit cover
   &__title
-    margin 0 0 0 20px
-    font-size 20px
+    margin 0 0 0 14px
+    font-size 16px
     font-weight 400
     color #797979
 </style>
