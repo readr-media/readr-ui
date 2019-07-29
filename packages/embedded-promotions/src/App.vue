@@ -1,7 +1,7 @@
 <template>
   <div class="embedded-promotions">
     <Header />
-    <div class="embedd-promotions__list-wrapper list-wrapper">
+    <div class="embedded-promotions__list-wrapper list-wrapper">
       <List />
     </div>
   </div>
@@ -13,7 +13,7 @@ import Header from './components/Header.vue'
 import List from './components/List.vue'
 
 export default {
-  name: 'Boilerplate',
+  name: 'EmbeddedPromotions',
   components: {
     Header,
     List

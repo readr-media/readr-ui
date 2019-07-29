@@ -1,14 +1,14 @@
 {
-  "name": "@readr-ui/logo",
+  "name": "@readr-ui/boilerplate",
   "version": "1.0.0",
-  "main": "dist/Logo.common.js",
+  "main": "dist/Boilerplate.common.js",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
     "prebuild": "npm run lint",
-    "build": "vue-cli-service build --target lib --name Logo",
+    "build": "vue-cli-service build --target lib --name Boilerplate",
     "lint": "vue-cli-service lint --no-fix --max-warnings 0",
     "lintfix": "vue-cli-service lint --max-warnings 0",
     "test:unit": "vue-cli-service test:unit",
