@@ -31,10 +31,10 @@ export default {
   display flex
   text-decoration none
   &__img
-    min-width 200px
-    max-width 200px
-    min-height 105px
-    max-height 105px
+    min-width 100px
+    max-width 100px
+    min-height 50px
+    max-height 50px
     background-color gray
     object-fit cover
   &__title
