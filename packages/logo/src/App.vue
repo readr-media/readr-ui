@@ -1,7 +1,7 @@
 <template>
   <img
     :class="['logo', `logo--${theme}`]"
-    :src="require(`./assets/readr-logo-${theme}.svg`)"
+    :src="`https://www.readr.tw/public/2.0/logos/readr-logo-${theme}.svg`"
     alt="READr logo"
   />
 </template>
@@ -21,6 +21,6 @@ export default {
 
 <style lang="stylus" scoped>
 .logo
-  &--dark
+  &--light
     background linear-gradient(to bottom, #444746 70%, transparent 30%)
 </style>
