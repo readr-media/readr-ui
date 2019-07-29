@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import store from './store'
+// import store from './store'
 import Header from './components/Header.vue'
 import List from './components/List.vue'
 
@@ -17,8 +17,8 @@ export default {
   components: {
     Header,
     List
-  },
-  store
+  }
+  // store
 }
 </script>
 

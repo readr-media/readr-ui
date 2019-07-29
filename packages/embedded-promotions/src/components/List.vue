@@ -13,7 +13,8 @@
 
 <script>
 import ListItem from './ListItem.vue'
-import { mapState, mapActions } from 'vuex'
+// import { mapState, mapActions } from 'vuex'
+import axios from 'axios'
 
 const debug = require('debug')('@readr-ui:embedded-promotions:List.vue')
 
@@ -21,8 +22,13 @@ export default {
   components: {
     ListItem
   },
-  computed: {
-    ...mapState(['list'])
+  // computed: {
+  //   ...mapState(['list'])
+  // },
+  data() {
+    return {
+      list: []
+    }
   },
   watch: {
     list(newValue, oldValue) {
@@ -35,7 +41,33 @@ export default {
     this.FETCH_SERIES()
   },
   methods: {
-    ...mapActions(['FETCH_SERIES'])
+    // ...mapActions(['FETCH_SERIES'])
+    SET_LIST(list) {
+      debug('SET_LIST: ', list)
+      this.$set(this, 'list', list)
+    },
+    FETCH_SERIES() {
+      const url = 'https://www.readr.tw/api/public/projects'
+      const params = {
+        max_result: 2,
+        page: 1,
+        sort: 'project_order,-published_at',
+        status: '{"$in":[2,1]}', // done, wip
+        publish_status: '{"$in":[2]}' // published
+      }
+
+      return axios
+        .get(url, { params })
+        .then(res => {
+          debug(`fetch ${url} successful`)
+          '_items' in res.data && this.SET_LIST(res.data['_items'])
+          return res
+        })
+        .catch(err => {
+          debug(`fetch ${url} fail`)
+          throw err
+        })
+    }
   }
 }
 </script>

@@ -3,21 +3,27 @@
     <a class="header__logo logo" :href="headerReadrUrl" target="_blank">
       <Logo class="logo__img" :theme="'light'" />
     </a>
-    <h1 class="header__title title" v-text="headerTtle" />
+    <h1 class="header__title title" v-text="headerTitle" />
   </header>
 </template>
 
 <script>
 import Logo from '../../../logo/src/App.vue'
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 
 export default {
   components: {
     Logo
   },
-  computed: {
-    ...mapState(['headerReadrUrl', 'headerTtle'])
+  data() {
+    return {
+      headerReadrUrl: 'https://www.readr.tw',
+      headerTitle: '最新專題'
+    }
   }
+  // computed: {
+  //   ...mapState(['headerReadrUrl', 'headerTtle'])
+  // }
 }
 </script>
 
