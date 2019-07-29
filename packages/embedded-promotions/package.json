@@ -1,6 +1,6 @@
 {
   "name": "@readr-ui/embedded-promotions",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "dist/EmbeddedPromotions.common.js",
   "publishConfig": {
     "access": "public"
@@ -25,7 +25,7 @@
     ]
   },
   "dependencies": {
-    "@readr-ui/logo": "^1.0.0",
+    "@readr-ui/logo": "^1.1.0",
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
