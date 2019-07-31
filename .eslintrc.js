@@ -6,7 +6,15 @@ module.exports = {
   extends: ['@vue/prettier', 'plugin:vue/recommended'],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/html-self-closing': [
+      'error',
+      {
+        html: {
+          void: 'always'
+        }
+      }
+    ]
   },
   parserOptions: {
     parser: 'babel-eslint'

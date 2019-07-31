@@ -41,6 +41,7 @@
     "sfc-init": "sfc-init",
     "serve": "vue serve",
     "lint": "vue-cli-service lint --no-fix --max-warnings 0 --ignore-path .gitignore --no-ignore .storybook/*.js",
+    "lintall": "vue-cli-service lint --ext .js,.vue --no-fix --max-warnings 0 --ignore-path .gitignore --no-ignore .storybook/*.js .",
     "lintfix": "vue-cli-service lint --ext .js,.vue --max-warnings 0 --ignore-path .gitignore --no-ignore .storybook/*.js .",
     "commit": "npx git-cz"
   },
