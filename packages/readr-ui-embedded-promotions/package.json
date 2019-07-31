@@ -1,6 +1,6 @@
 {
   "name": "@readr-ui/embedded-promotions",
-  "version": "1.2.3",
+  "version": "2.0.0",
   "description": "",
   "publishConfig": {
     "access": "public"
@@ -20,7 +20,7 @@
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
   "dependencies": {
-    "@readr-ui/logo": "^1.1.0"
+    "@readr-ui/logo": "^2.0.0"
   },
   "devDependencies": {
     "cross-env": "^5.2.0",

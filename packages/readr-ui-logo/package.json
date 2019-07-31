@@ -1,20 +1,17 @@
 {
   "name": "@readr-ui/logo",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "",
   "publishConfig": {
     "access": "public"
   },
-
   "main": "dist/readr-ui-logo.ssr.js",
   "module": "dist/readr-ui-logo.esm.js",
   "unpkg": "dist/readr-ui-logo.min.js",
-
   "files": [
     "dist/*",
     "src/**/*.vue"
   ],
-
   "scripts": {
     "prepublish": "npm run build",
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
@@ -22,10 +19,6 @@
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
-
-  "dependencies": {
-  },
-
   "devDependencies": {
     "cross-env": "^5.2.0",
     "minimist": "^1.2.0",
