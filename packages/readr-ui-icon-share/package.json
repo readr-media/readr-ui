@@ -1,30 +1,23 @@
 {
   "name": "@readr-ui/icon-share",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "",
-
   "main": "dist/readr-ui-icon-share.ssr.js",
   "module": "dist/readr-ui-icon-share.esm.js",
   "unpkg": "dist/readr-ui-icon-share.min.js",
   "publishConfig": {
     "access": "public"
   },
-  
   "files": [
     "dist/*",
     "src/**/*.vue"
   ],
-
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
-
-  "dependencies": {
-  },
-
   "devDependencies": {
     "cross-env": "^5.2.0",
     "minimist": "^1.2.0",
