@@ -10,7 +10,8 @@
   "unpkg": "dist/readr-ui-icon.min.js",
   "files": [
     "dist/*",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "src/**/*.js"
   ],
   "scripts": {
     "prepublish": "npm run build",

@@ -10,7 +10,8 @@
   "unpkg": "dist/readr-ui-app-header.min.js",
   "files": [
     "dist/*",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "src/**/*.js"
   ],
   "scripts": {
     "prepublish": "npm run build",
