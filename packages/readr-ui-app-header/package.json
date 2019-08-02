@@ -1,6 +1,6 @@
 {
   "name": "@readr-ui/app-header",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "publishConfig": {
     "access": "public"
@@ -21,8 +21,8 @@
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
   "dependencies": {
-    "@readr-ui/icon": "^1.0.0",
-    "@readr-ui/icon-share": "^1.0.0",
+    "@readr-ui/icon": "^1.0.1",
+    "@readr-ui/icon-share": "^1.0.1",
     "@readr-ui/logo": "^2.0.0",
     "@readr-ui/radio-item": "^1.0.0",
     "dayjs": "^1.8.15",

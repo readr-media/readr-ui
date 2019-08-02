@@ -1,6 +1,6 @@
 {
   "name": "@readr-ui/icon-share",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/readr-ui-icon-share.ssr.js",
   "module": "dist/readr-ui-icon-share.esm.js",
