@@ -59,4 +59,15 @@ export default {
     font-size 30px
     font-weight 600
     margin 0 0 20px 0
+
+@media (max-width 1400px)
+  .series
+    width 90%
+    margin 0 auto
+
+@media (max-width 768px)
+  .series
+    h1
+      font-size 24px
+      margin 0 0 10px 0
 </style>

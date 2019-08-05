@@ -686,4 +686,93 @@ export default {
   align-items center
   &--yellow
     background-color #ddcf21
+
+@media (max-width 1400px)
+  .donate
+    width 90%
+    margin 80px auto 0 auto
+
+  .header
+    display flex
+    align-items center
+    padding 0 42px 0 0
+    img
+      width auto
+      height 84px
+      top 5px
+    &__titles
+      flex-direction column
+      margin 0 0 0 115px
+      p
+        font-size 18px
+      p + p
+        margin 0
+
+@media (max-width 768px)
+  .donate
+    width 100%
+    margin 100px 0 0 0
+    &__block
+      & + &
+        margin 20px 0 0 0
+
+  .header
+    display flex
+    align-items center
+    padding 0 42px 0 0
+    img
+      width auto
+      height 84px
+      top 5px
+    &__titles
+      flex-direction column
+      margin 0 0 0 115px
+      p
+        font-size 18px
+      p + p
+        margin 0
+
+  .donate-amount
+    &__coins
+      margin 8px 0 0 0
+
+  .coins
+    &__row
+      display flex
+      flex-wrap wrap
+      align-items center
+      & + &
+        margin 8px 0 0 0
+    &__coin
+      & + &
+        margin 0 0 0 8px
+      &:nth-of-type(4)
+        margin-right calc(90vw - 12px * 2 - 60px * 4 - 8px * 3)
+      &:nth-of-type(5)
+        margin 8px 0 0 0
+
+  .custom-coin-input
+    &__top
+      display flex
+      align-items center
+      input
+        -webkit-appearance none
+        border-radius 0
+        box-shadow inset 0 1px 3px 0 rgba(0,0,0,0.5)
+        border none
+        width 150px
+        height 30px
+        padding 6px 10px
+        font-size 16px
+        &:focus
+          outline none
+      p
+        margin 0 0 0 10px !important
+    &__bottom
+      margin 3px 0 0 0
+      p
+        font-size 12px
+
+  .buttons
+    padding 50px 0
 </style>

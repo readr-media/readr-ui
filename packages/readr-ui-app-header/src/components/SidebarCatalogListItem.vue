@@ -8,7 +8,10 @@
         <h1>
           {{ title }}
         </h1>
-        <p>
+        <p class="content-wrapper__date">
+          {{ date }}
+        </p>
+        <p class="content-wrapper__description">
           {{ description }}
         </p>
       </div>
@@ -18,6 +21,7 @@
 
 <script>
 import { getOgImageUrl, getPostType, getPostUrl } from '../util/post'
+import dayjs from 'dayjs'
 
 export default {
   props: {
@@ -33,6 +37,9 @@ export default {
     },
     title() {
       return this.item.og_title || this.item.title
+    },
+    date() {
+      return dayjs(this.item['published_at'] || '').format('YYYY/MM/DD')
     },
     description() {
       return this.item.og_description
@@ -73,4 +80,28 @@ export default {
     font-size 16px
     line-height 1.3
     color black
+  &__date
+    display none
+  &__description
+    display block
+
+@media (max-width 768px)
+  .img-wrapper
+    img
+      width 150px
+      height 84px
+
+  .content-wrapper
+    margin 0 0 0 14px
+    h2
+      word-wrap break-word
+      word-break break-all
+    p
+      margin 10px 0 0 0
+      font-size 12px
+    &__date
+      display block
+      color #4a4a4a !important
+    &__description
+      display none
 </style>

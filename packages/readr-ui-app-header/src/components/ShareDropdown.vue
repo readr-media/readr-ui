@@ -1,7 +1,7 @@
 <template>
   <div v-click-outside="hideNavs" class="wrapper">
     <div class="wrapper__share" @click="toggleNavs">
-      <Icon :icon-type="'share'" :height="30" />
+      <Icon :icon-type="'share'" :height="iconHeight" />
     </div>
     <nav
       :class="[
@@ -20,6 +20,7 @@
 <script>
 import Icon from '@readr-ui/icon/src/readr-ui-icon.vue'
 import IconShare from '@readr-ui/icon-share/src/readr-ui-icon-share.vue'
+import iconHeightMixin from '../mixins/iconHeight'
 
 export default {
   directives: {
@@ -43,6 +44,7 @@ export default {
     Icon,
     IconShare
   },
+  mixins: [iconHeightMixin],
   props: {
     url: {
       type: String,

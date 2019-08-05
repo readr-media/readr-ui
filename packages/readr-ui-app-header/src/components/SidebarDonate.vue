@@ -44,8 +44,6 @@ export default {
   },
   data() {
     return {
-      // showResult: false,
-      // isResultSuccess: false,
       formData: {
         donateAmount: 0,
         carrierTypeSelected: '',
@@ -59,14 +57,6 @@ export default {
       this.$set(this, 'formData', payload.formData)
       this.$emit('submitForm', payload)
     }
-    // onShowResultSuccess() {
-    //   this.showResult = true
-    //   this.isResultSuccess = true
-    // },
-    // onShowResultFail() {
-    //   this.showResult = true
-    //   this.isResultSuccess = false
-    // }
   }
 }
 </script>

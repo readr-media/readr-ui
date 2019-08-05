@@ -73,10 +73,29 @@ export default {
       transform translateX(0px)
 
 .sidebar
-
   padding 80px 0
   overflow-y scroll
   &__wrapper
     width 640px
     margin 0 auto
+
+@media (max-width 1440px)
+  .sidebar
+    &__wrapper
+      width 100%
+
+@media (max-width 768px)
+  .sidebar-wrapper
+    height calc(100vh - 40px)
+    &__sidebar
+      width 90vw
+      transform translateX(-90vw)
+      &--show
+        transform translateX(0px)
+
+  .sidebar
+    padding 14px 12px
+    -webkit-overflow-scrolling touch
+    &__wrapper
+      width 100%
 </style>

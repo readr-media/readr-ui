@@ -6,13 +6,13 @@
         <Icon
           class="navs__nav"
           :icon-type="'catalog'"
-          :height="30"
+          :height="iconHeight"
           @click.native="toggleSidebar('catalog')"
         />
         <Icon
           class="navs__nav"
           :icon-type="'donate'"
-          :height="30"
+          :height="iconHeight"
           @click.native="toggleSidebar('donate')"
         />
         <ShareDropdown class="navs__nav" :url="url" />
@@ -47,6 +47,7 @@ import ShareDropdown from './components/ShareDropdown.vue'
 import Sidebar from './components/Sidebar.vue'
 import SidebarCatalog from './components/SidebarCatalog.vue'
 import SidebarDonate from './components/SidebarDonate.vue'
+import iconHeightMixin from './mixins/iconHeight'
 
 export default {
   store,
@@ -58,6 +59,7 @@ export default {
     SidebarCatalog,
     SidebarDonate
   },
+  mixins: [iconHeightMixin],
   props: {
     url: {
       type: String,
@@ -173,4 +175,24 @@ export default {
       color white
       user-select none
       transition color .25s ease-out
+
+@media (max-width 1450px)
+  .header
+    &__wrapper
+      max-width 90%
+
+@media (max-width 768px)
+  .header
+    height 40px
+    &__logo
+      width 44px
+      top 10px
+    &__navs
+      top 0px
+
+  .navs
+    &__nav
+      height 24px
+      & + &
+        margin 0 0 0 20px
 </style>

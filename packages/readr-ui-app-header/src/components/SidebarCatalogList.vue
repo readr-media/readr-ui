@@ -35,4 +35,10 @@ export default {
     cursor pointer
     & + &
       margin 30px 0 0 0
+
+@media (max-width 768px)
+  .list
+    &__list-item
+      & + &
+        margin 17px 0 0 0
 </style>

@@ -152,4 +152,32 @@ export default {
   &--small
     font-weight 400
     height 30px
+
+@media (max-width 768px)
+  .donate-result
+    height calc(100vh - 80px - 40px)
+
+  .success
+    width 100%
+    p:nth-child(1)
+      font-size 16px
+    p:nth-child(2)
+      font-size 12px
+    &__back-to-form-button
+      position absolute
+      bottom 90px
+      width 70% !important
+    &__footer
+      height 80px
+      img
+        height 100px
+        position absolute
+        bottom 70px
+        right 12px
+
+  .table
+    font-size 12px
+
+  .buttons
+    width 100%
 </style>
