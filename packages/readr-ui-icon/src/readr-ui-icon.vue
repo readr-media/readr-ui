@@ -55,8 +55,8 @@ export default {
     getCurrentIcon() {
       let config = Object.assign({}, iconConfig[this.iconType])
       if (this.isLocalhost()) {
-        const readrIconBaseUrl = 'https://www.readr.tw/public/2.0/icons'
-        config.imagePath = `${readrIconBaseUrl}/${config.imagePath}`
+        const readrUrl = 'https://www.readr.tw'
+        config.imagePath = `${readrUrl}${config.imagePath}`
       }
       return config
     }
