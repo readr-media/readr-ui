@@ -15,7 +15,7 @@ export default {
   props: {
     imagePath: {
       type: String,
-      required: true
+      default: ''
     },
     color: {
       type: String,

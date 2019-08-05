@@ -11,7 +11,7 @@
 
 <script>
 import IconPresentational from './components/Icon.vue'
-import config from './config'
+import iconConfig from './config'
 
 export default {
   name: 'Icon',
@@ -23,7 +23,7 @@ export default {
       type: String,
       required: true,
       validator(value) {
-        return Object.keys(config).includes(value)
+        return Object.keys(iconConfig).includes(value)
       }
     },
     color: {
@@ -41,23 +41,24 @@ export default {
   },
   data() {
     return {
-      config
+      currentIcon: {}
     }
   },
-  computed: {
-    currentIcon() {
-      let config = this.config[this.iconType]
-      if (this.isLocalhost()) {
-        const readrIconBaseUrl = 'https://www.readr.tw/public/2.0/icons'
-        config.imagePath = `${readrIconBaseUrl}/${config.imagePath}`
-      }
-      return config
-    }
+  beforeMount() {
+    this.currentIcon = this.getCurrentIcon()
   },
   methods: {
     isLocalhost() {
       const local = /http:\/\/localhost:(\d*)/
       return local.test(location || '')
+    },
+    getCurrentIcon() {
+      let config = Object.assign({}, iconConfig[this.iconType])
+      if (this.isLocalhost()) {
+        const readrIconBaseUrl = 'https://www.readr.tw/public/2.0/icons'
+        config.imagePath = `${readrIconBaseUrl}/${config.imagePath}`
+      }
+      return config
     }
   }
 }
