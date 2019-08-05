@@ -586,6 +586,7 @@ export default {
   height d
   border-radius d
   border 1px solid black
+  background-color white
   cursor pointer
   font-size 16px
   padding 0
