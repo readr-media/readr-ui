@@ -46,7 +46,18 @@ export default {
   },
   computed: {
     currentIcon() {
-      return this.config[this.iconType]
+      let config = this.config[this.iconType]
+      if (this.isLocalhost()) {
+        const readrIconBaseUrl = 'https://www.readr.tw/public/2.0/icons'
+        config.imagePath = `${readrIconBaseUrl}/${config.imagePath}`
+      }
+      return config
+    }
+  },
+  methods: {
+    isLocalhost() {
+      const local = /http:\/\/localhost:(\d*)/
+      return local.test(location || '')
     }
   }
 }
