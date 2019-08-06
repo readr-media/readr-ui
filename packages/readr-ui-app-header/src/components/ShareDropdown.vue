@@ -82,9 +82,11 @@ export default {
     opacity 0
     user-select none
     transition opacity .15s ease-out
+    pointer-events none
     &--show
       opacity 1
       user-select initial
+      pointer-events auto
 
 .share-navs
   margin 10px 0 0 0
