@@ -32,7 +32,10 @@ import { mapState, mapMutations } from 'vuex'
 export default {
   data() {
     return {
-      sidebarHeight: 0
+      sidebarHeight: 0,
+      headerHeightDesktop: 50,
+      headerHeightMobile: 40,
+      breakpoint: 768
     }
   },
   computed: {
@@ -50,7 +53,11 @@ export default {
   methods: {
     ...mapMutations(['SET_SHOW_SIDEBAR']),
     getSidebarHeight() {
-      this.sidebarHeight = window.innerHeight
+      const headerHeight =
+        window.innerHeight <= this.breakpoint
+          ? this.headerHeightMobile
+          : this.headerHeightDesktop
+      this.sidebarHeight = window.innerHeight - headerHeight
     }
   }
 }
