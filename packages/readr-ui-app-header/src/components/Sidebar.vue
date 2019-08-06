@@ -54,7 +54,7 @@ export default {
     ...mapMutations(['SET_SHOW_SIDEBAR']),
     getSidebarHeight() {
       const headerHeight =
-        window.innerHeight <= this.breakpoint
+        window.innerWidth <= this.breakpoint
           ? this.headerHeightMobile
           : this.headerHeightDesktop
       this.sidebarHeight = window.innerHeight - headerHeight
