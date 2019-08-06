@@ -1,5 +1,10 @@
 <template>
-  <div :class="['sidebar-wrapper', { 'sidebar-wrapper--show': showSidebar }]">
+  <div
+    :class="['sidebar-wrapper', { 'sidebar-wrapper--show': showSidebar }]"
+    :style="{
+      height: `${sidebarHeight}px`
+    }"
+  >
     <div
       :class="[
         'sidebar-wrapper__dimmed',
@@ -25,13 +30,28 @@
 import { mapState, mapMutations } from 'vuex'
 
 export default {
+  data() {
+    return {
+      sidebarHeight: 0
+    }
+  },
   computed: {
     ...mapState({
       showSidebar: state => state.showSidebar
     })
   },
+  mounted() {
+    this.getSidebarHeight()
+    window.addEventListener('resize', this.getSidebarHeight)
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.getSidebarHeight)
+  },
   methods: {
-    ...mapMutations(['SET_SHOW_SIDEBAR'])
+    ...mapMutations(['SET_SHOW_SIDEBAR']),
+    getSidebarHeight() {
+      this.sidebarHeight = window.innerHeight
+    }
   }
 }
 </script>
@@ -42,7 +62,7 @@ export default {
   bottom 0
   left 0
   width 100vw
-  height calc(100vh - 50px)
+  // height calc(100vh - 50px)
   opacity 0
   pointer-events none
   transition opacity 0s .25s
