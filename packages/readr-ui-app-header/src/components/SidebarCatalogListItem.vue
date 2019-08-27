@@ -1,19 +1,17 @@
 <template>
   <li class="list-item-wrapper" @click="handleClick">
+    <SideBadge
+      v-if="shouldShowSideBadge"
+      class="list-item-wrapper__side-badge"
+    />
     <div class="list-item">
       <div class="list-item__img-wrapper img-wrapper">
         <img :src="image" alt="" />
       </div>
       <div class="list-item__content-wrapper content-wrapper">
-        <h1>
-          {{ title }}
-        </h1>
-        <p class="content-wrapper__date">
-          {{ date }}
-        </p>
-        <p class="content-wrapper__description">
-          {{ description }}
-        </p>
+        <h1 v-text="title" />
+        <p class="content-wrapper__date" v-text="dateFormatted" />
+        <p class="content-wrapper__description" v-text="description" />
       </div>
     </div>
   </li>
@@ -23,7 +21,12 @@
 import { getOgImageUrl, getPostType, getPostUrl } from '../util/post'
 import dayjs from 'dayjs'
 
+import SideBadge from '@readr-ui/side-badge/src/readr-ui-side-badge.vue'
+
 export default {
+  components: {
+    SideBadge
+  },
   props: {
     item: {
       type: Object,
@@ -39,10 +42,21 @@ export default {
       return this.item.og_title || this.item.title
     },
     date() {
-      return dayjs(this.item['published_at'] || '').format('YYYY/MM/DD')
+      return dayjs(this.item['published_at'] || '')
+    },
+    dateFormatted() {
+      return this.date.format('YYYY/MM/DD')
     },
     description() {
       return this.item.og_description
+    },
+    shouldShowSideBadge() {
+      if (this.date.isValid()) {
+        const today = dayjs()
+        const currentDate = this.date
+        return today.diff(currentDate, 'day') <= 7
+      }
+      return false
     }
   },
   methods: {
@@ -57,6 +71,13 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.list-item-wrapper
+  position relative
+  &__side-badge
+    position absolute
+    top 0
+    left -15px
+
 .list-item
   display flex
 
