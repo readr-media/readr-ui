@@ -1,6 +1,6 @@
 <template>
   <div class="side-badge-wrapper">
-    <div class="side-badge-wrapper__decoration decoration" />
+    <div v-if="showWrapper" class="side-badge-wrapper__decoration decoration" />
     <div class="side-badge-wrapper__main main">
       <p class="main__text" v-text="text" />
     </div>
@@ -13,6 +13,10 @@ export default {
     text: {
       type: String,
       default: '更新'
+    },
+    showWrapper: {
+      type: Boolean,
+      defalut: false
     }
   }
 }
