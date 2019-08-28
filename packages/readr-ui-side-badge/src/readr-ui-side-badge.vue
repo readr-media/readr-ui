@@ -16,7 +16,7 @@ export default {
     },
     showWrapper: {
       type: Boolean,
-      defalut: false
+      defalut: true
     }
   }
 }
