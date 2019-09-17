@@ -6,6 +6,7 @@
         :placeholder="placeholder"
         class="subscription__input"
         type="email"
+        required
       />
       <button class="subscription__btn" type="submit" v-text="submitText" />
     </form>
