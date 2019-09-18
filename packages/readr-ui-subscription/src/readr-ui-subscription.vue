@@ -8,7 +8,21 @@
         type="email"
         required
       />
-      <button class="subscription__btn" type="submit" v-text="submitText" />
+      <button :disabled="isLoading" class="subscription__btn" type="submit">
+        {{ isLoading ? '' : submitText }}
+        <!-- Loading Efect https://codepen.io/andreasstorm/pen/QZEKWr -->
+        <template v-if="isLoading">
+          <div class="loading">
+            <span class="loading__dot" />
+            <div class="loading__dots">
+              <span />
+              <span />
+              <span />
+            </div>
+          </div>
+        </template>
+        <!-- Loading Efect End -->
+      </button>
     </form>
     <p v-if="isSuccess" class="info success">
       謝謝你的訂閱，您已加入電子報名單。
@@ -25,6 +39,10 @@ export default {
       default: ''
     },
     isError: {
+      type: Boolean,
+      default: false
+    },
+    isLoading: {
       type: Boolean,
       default: false
     },
@@ -68,10 +86,10 @@ export default {
     padding 0 10px
     line-height 1
     background-color #fff
-    border 1px solid #000
-    // border none
+    border none
     border-radius 5px
   &__btn
+    position relative
     width 70px
     height 30px
     margin-left 10px
@@ -87,6 +105,47 @@ export default {
   font-size 10px
   &.error
     color red
+
+.loading
+  position absolute
+  top 50%
+  left 50%
+  width 70px
+  height 40px
+  margin -20px 0 0 -35px
+  filter contrast(20)
+  &__dot
+    position absolute
+    width 5px
+    height 5px
+    top 17px
+    left 17.5px
+    filter blur(.5px)
+    background-color #fff
+    border-radius 50%
+    transform translateX(0)
+    animation dot 2.8s infinite
+  &__dots
+    transform translateX(0)
+    margin-top 17px
+    margin-left 22.5px
+    animation dots 2.8s infinite
+    span
+      display block
+      float left
+      width 5px
+      height 5px
+      margin-left 5px
+      filter blur(.5px)
+      background-color #fff
+      border-radius 50%
+
+@keyframes dot
+  50%
+    transform translateX(30px)
+@keyframes dots
+  50%
+    transform translateX(-11px)
 
 @media (min-width 768px)
   .subscription
