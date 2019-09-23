@@ -10,7 +10,7 @@
       />
       <button :disabled="isLoading" class="subscription__btn" type="submit">
         {{ isLoading ? '' : submitText }}
-        <!-- Loading Efect https://codepen.io/andreasstorm/pen/QZEKWr -->
+        <!-- Loading Effect https://codepen.io/andreasstorm/pen/QZEKWr -->
         <template v-if="isLoading">
           <div class="loading">
             <span class="loading__dot" />
@@ -92,8 +92,10 @@ export default {
     position relative
     width 70px
     height 30px
+    padding 0
     margin-left 10px
     color #fff
+    text-align center
     border none
     border-radius 5px
     background-color #000
