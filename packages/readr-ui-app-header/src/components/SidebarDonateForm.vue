@@ -17,26 +17,6 @@
             :class="[
               'coins__coin',
               'coin',
-              { 'coin--selected': donateAmountSelected === 30 }
-            ]"
-            @click="toggleDomateAmount(30)"
-          >
-            30 元
-          </button>
-          <button
-            :class="[
-              'coins__coin',
-              'coin',
-              { 'coin--selected': donateAmountSelected === 60 }
-            ]"
-            @click="toggleDomateAmount(60)"
-          >
-            60 元
-          </button>
-          <button
-            :class="[
-              'coins__coin',
-              'coin',
               { 'coin--selected': donateAmountSelected === 150 }
             ]"
             @click="toggleDomateAmount(150)"
@@ -57,6 +37,26 @@
             :class="[
               'coins__coin',
               'coin',
+              { 'coin--selected': donateAmountSelected === 500 }
+            ]"
+            @click="toggleDomateAmount(500)"
+          >
+            500 元
+          </button>
+          <button
+            :class="[
+              'coins__coin',
+              'coin',
+              { 'coin--selected': donateAmountSelected === 1000 }
+            ]"
+            @click="toggleDomateAmount(1000)"
+          >
+            1000 元
+          </button>
+          <button
+            :class="[
+              'coins__coin',
+              'coin',
               { 'coin--selected': isDonateAmountCustom }
             ]"
             @click="toggleDomateAmount('custom')"
@@ -71,7 +71,7 @@
               <p>元</p>
             </div>
             <div class="custom-coin-input__bottom">
-              <p>(最低贊助為 30 元)</p>
+              <p>(單筆贊助最低 30 元，最高 2000 元)</p>
             </div>
           </div>
         </div>
@@ -197,6 +197,11 @@
             type="text"
             placeholder="請填入您的公司統一編號"
           />
+          <input
+            v-model="carrierInputs.carrierBusiness.address"
+            type="text"
+            placeholder="請填入您的發票寄送地址"
+          />
         </div>
       </div>
     </div>
@@ -275,9 +280,9 @@ export default {
   },
   data() {
     return {
-      donateAmountSelected: 0,
+      donateAmountSelected: 150,
       isDonateAmountCustom: false,
-      donateAmountCustomInternal: 30,
+      donateAmountCustomInternal: '',
 
       isCardInfoValid: false,
 
@@ -287,6 +292,7 @@ export default {
         carrierPhone: '',
         carrierNatural: '',
         carrierBusiness: {
+          address: '',
           title: '',
           taxNumber: ''
         }
@@ -312,14 +318,22 @@ export default {
         return this.donateAmountCustomInternal
       },
       set(value) {
-        this.donateAmountCustomInternal = value < 30 ? 30 : value
+        if (value < 30) {
+          this.donateAmountCustomInternal = 30
+        } else if (value > 2000) {
+          this.donateAmountCustomInternal = 2000
+        } else {
+          this.donateAmountCustomInternal = value
+        }
       }
     },
 
     isFormValid() {
       const isDonateAmountValid =
         this.donateAmountSelected !== 0 ||
-        (this.isDonateAmountCustom && this.donateAmountCustomInternal >= 30)
+        (this.isDonateAmountCustom &&
+          this.donateAmountCustomInternal >= 30 &&
+          this.donateAmountCustomInternal <= 2000)
       const isPaymentMethodValid = this.isCardInfoValid
       const isCarrierValid =
         this.carrierTypeSelected !== '' &&
@@ -328,11 +342,20 @@ export default {
         this.contactInputs.contactName !== '' &&
         this.contactInputs.contactEmail !== ''
 
+      const isCarrierBusiness = this.carrierTypeSelected === 'carrierBusiness'
+      let isCarrierBusinessInfoValid = true
+      if (isCarrierBusiness) {
+        isCarrierBusinessInfoValid =
+          this.carrierInputs.carrierBusiness.address &&
+          this.carrierInputs.carrierBusiness.taxNumber &&
+          this.carrierInputs.carrierBusiness.title
+      }
       return (
         isDonateAmountValid &&
         isPaymentMethodValid &&
         isCarrierValid &&
-        isContactValid
+        isContactValid &&
+        isCarrierBusinessInfoValid
       )
     },
 

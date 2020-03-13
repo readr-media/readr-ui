@@ -2,7 +2,12 @@
   <div class="donate-result">
     <div v-if="isResultSuccess" class="donate-result__success success">
       <p>贊助成功！</p>
-      <p>謝謝贊助，以下是贊助明細，發票會寄送到電子信箱</p>
+      <p>謝謝贊助，以下是本次的贊助明細，發票會寄送到電子信箱</p>
+      <p>
+        如果有任何問題，歡迎聯繫我們：
+        <a href="mailto:readr@readr.tw">readr@readr.tw</a>
+        ／ 02-6633-3805
+      </p>
       <div class="success__result-table-wrapper result-table-wrapper">
         <table class="result-table-wrapper__table table">
           <tr>
@@ -10,7 +15,7 @@
             <td>{{ formData.donateAmount }} 元</td>
           </tr>
           <tr>
-            <td>贊助時間：</td>
+            <td>本次贊助時間：</td>
             <td>{{ formData.date }}</td>
           </tr>
           <tr>
@@ -76,22 +81,25 @@ export default {
   height calc(100vh - 80px * 2 - 58.8px)
 
 .success
-  width 440px
+  width 500px
   margin 0 auto
-  p:nth-child(1)
-    text-align center
-    font-size 24px
-    font-weight 500
-  p:nth-child(2)
-    margin 22px 0 0 0
+  p
     font-size 16px
-    line-height 1.25
+    line-height 1.6
+    &:nth-child(1)
+      text-align center
+      font-size 24px
+      font-weight 500
+    &:nth-child(2)
+      margin 22px 0 0 0
+    &:last-of-type
+      margin-top 22px
   &__result-table-wrapper
     margin 30px 0 0 0
   &__back-to-form-button
     position absolute
     bottom 100px
-    width 440px !important
+    width 500px !important
   &__footer
     width 100%
     height 60px
@@ -129,7 +137,7 @@ export default {
     margin 60px 0 0 0
 
 .buttons
-  width 440px
+  width 500px
   &__button
     & + &
       margin 20px 0 0 0
