@@ -34,7 +34,7 @@
         :is-result-success="donateIsResultSuccess"
         @startDeposit="$emit('startDeposit')"
         @finishDeposit="$emit('finishDeposit')"
-        @submitForm="v => $emit('submitDonate', v)"
+        @submitForm="submitInfo => $emit('submitDonate', submitInfo)"
         @backToForm="$emit('backToDonateForm')"
       />
     </Sidebar>

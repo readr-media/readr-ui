@@ -500,7 +500,7 @@ export default {
           const now = new Date()
           if (submitStrategy[this.donateType]) {
             const payload = submitStrategy[this.donateType](result, now)
-            this.$emit('submitForm', payload)
+            this.$emit('submitForm', { type: this.donateType, payload })
           }
         })
       }

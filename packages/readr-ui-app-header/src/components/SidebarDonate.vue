@@ -60,9 +60,9 @@ export default {
     }
   },
   methods: {
-    onFormSubmit(payload) {
-      this.$set(this, 'formData', payload.formData)
-      this.$emit('submitForm', payload)
+    onFormSubmit(submitInfo) {
+      this.$set(this, 'formData', submitInfo.payload.formData)
+      this.$emit('submitForm', submitInfo)
     }
   }
 }
