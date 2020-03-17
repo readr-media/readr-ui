@@ -30,7 +30,10 @@
         :tappay-config="donateTappayConfig"
         :user-profile="donateUserProfile"
         :show-result="donateShowResult"
+        :is-depositing="donateIsDepositing"
         :is-result-success="donateIsResultSuccess"
+        @startDeposit="$emit('startDeposit')"
+        @finishDeposit="$emit('finishDeposit')"
         @submitForm="v => $emit('submitDonate', v)"
         @backToForm="$emit('backToDonateForm')"
       />
@@ -87,6 +90,10 @@ export default {
       }
     },
     donateShowResult: {
+      type: Boolean,
+      default: false
+    },
+    donateIsDepositing: {
       type: Boolean,
       default: false
     },

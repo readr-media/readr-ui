@@ -2,8 +2,11 @@
   <div class="donate-wrapper">
     <SidebarDonateForm
       v-if="!showResult"
+      :is-depositing="isDepositing"
       :tappay-config="tappayConfig"
       :user-profile="userProfile"
+      @startDeposit="$emit('startDeposit')"
+      @finishDeposit="$emit('finishDeposit')"
       @submitForm="onFormSubmit"
     />
     <SidebarDonateResult
@@ -34,6 +37,10 @@ export default {
       required: true
     },
     showResult: {
+      type: Boolean,
+      required: true
+    },
+    isDepositing: {
       type: Boolean,
       required: true
     },
