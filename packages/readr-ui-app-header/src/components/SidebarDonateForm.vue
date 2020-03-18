@@ -448,7 +448,7 @@ export default {
       }
       return requestBody
     },
-    getPayloadOnce(primeResult, now) {
+    getPayloadOnce(primeResult) {
       const payload = {
         donateData: {
           invoiceItem: {
@@ -471,12 +471,6 @@ export default {
           member_name: get(this.contactInputs, 'contactName', ''),
           member_mail: get(this.contactInputs, 'contactEmail', ''),
           member_phone: get(this.contactInputs, 'contactPhone', '')
-        },
-        formData: {
-          donateAmount: this.donateAmount,
-          carrierTypeSelected: this.carrierTypeSelected,
-          carrierInputs: this.carrierInputs[this.carrierTypeSelected],
-          date: dayjs(now).format('YYYY/MM/DD HH:mm:ss')
         }
       }
       return payload
@@ -500,6 +494,14 @@ export default {
           const now = new Date()
           if (submitStrategy[this.donateType]) {
             const payload = submitStrategy[this.donateType](result, now)
+            const resultInfo = {
+              isSubscription: this.donateType === 'subscription',
+              donateAmount: this.donateAmount,
+              carrierTypeSelected: this.carrierTypeSelected,
+              carrierInputs: this.carrierInputs[this.carrierTypeSelected],
+              date: dayjs(now).format('YYYY/MM/DD HH:mm:ss')
+            }
+            payload.formData = resultInfo
             this.$emit('submitForm', { type: this.donateType, payload })
           }
         })

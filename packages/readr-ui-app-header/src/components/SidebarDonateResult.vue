@@ -3,6 +3,9 @@
     <div v-if="isResultSuccess" class="donate-result__success success">
       <p>贊助成功！</p>
       <p>謝謝贊助，以下是本次的贊助明細，發票會寄送到電子信箱</p>
+      <p v-if="isSubscription">
+        下個月同一日期會再次進行扣款，並寄送發票明細於電子信箱
+      </p>
       <p>
         如果有任何問題，歡迎聯繫我們：
         <a href="mailto:readr@readr.tw">readr@readr.tw</a>
@@ -11,7 +14,7 @@
       <div class="success__result-table-wrapper result-table-wrapper">
         <table class="result-table-wrapper__table table">
           <tr>
-            <td>贊助金額：</td>
+            <td>{{ isSubscription ? '定期' : '' }}贊助金額：</td>
             <td>{{ formData.donateAmount }} 元</td>
           </tr>
           <tr>
@@ -66,6 +69,11 @@ export default {
     formData: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    isSubscription() {
+      return this.formData.isSubscription
     }
   },
   methods: {
