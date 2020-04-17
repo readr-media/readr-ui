@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       headerReadrUrl: 'https://www.readr.tw',
-      headerTitle: '最新專題'
+      headerTitle: '專題報導'
     }
   }
 }
