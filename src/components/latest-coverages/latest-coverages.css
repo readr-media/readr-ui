@@ -1,0 +1,72 @@
+:host {
+  display: block;
+  font-family: "Noto Sans CJK TC", system-ui, -apple-system, sans-serif;
+}
+
+h3, p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+h3 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 17px;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+p {
+  color: rgba(0, 0, 0, 0.660637);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.coverage {
+  display: flex;
+  align-items: flex-start;
+}
+
+.coverage + .coverage {
+  margin: 10px 0 0;
+}
+
+.coverage__image img {
+  display: block;
+  width: 82px;
+  height: 82px;
+  object-position: center center;
+  object-fit: cover;
+}
+
+.coverage__info {
+  flex: 1;
+  margin: 0 0 0 20px;
+}
+
+.coverage__info h3 {
+  display: -webkit-box;
+  text-align: justify;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.coverage__info p {
+  margin: 10px 0 0;
+}
+
+@media screen and (min-width: 768px) {
+  h3 {
+    font-size: 20px;
+  }
+  .coverage + .coverage {
+    margin: 20px 0 0;
+  }
+  .coverage__image img {
+    width: 200px;
+    height: 101px;
+  }
+}

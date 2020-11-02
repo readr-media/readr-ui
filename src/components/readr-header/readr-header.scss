@@ -1,0 +1,22 @@
+@import "../../css/base.css";
+
+:host {
+  display: block;
+}
+
+header {
+  padding: 9px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  display: block;
+}
+
+svg {
+  width: 48px;
+  margin-left: auto;
+  margin-right: auto;
+}
