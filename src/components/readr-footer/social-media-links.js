@@ -1,7 +1,7 @@
-import iconFacebook from './assets/iconFacebook.svg'
-import iconTwitter from './assets/iconTwitter.svg'
-import iconInstagram from './assets/iconInstagram.svg'
-import iconGitHub from './assets/iconGitHub.svg'
+import iconFacebook from './assets/icon-facebook.svg'
+import iconTwitter from './assets/icon-twitter.svg'
+import iconInstagram from './assets/icon-instagram.svg'
+import iconGitHub from './assets/icon-github.svg'
 
 export default [
   {
