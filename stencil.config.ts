@@ -1,5 +1,6 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
+import { inlineSvg } from 'stencil-inline-svg';
 
 export const config: Config = {
   namespace: 'web-components',
@@ -26,6 +27,7 @@ export const config: Config = {
         './src/scss/_variables.scss',
         './src/scss/_breakpoints.scss',
       ]
-    })
+    }),
+    inlineSvg()
   ]
 };

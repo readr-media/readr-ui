@@ -31,7 +31,7 @@ export class ReadrFooter {
         <footer>
           <div class="media-links">
             {
-              Object.values(SOCIAL_MEDIA_LINKS).map(medium => {
+              SOCIAL_MEDIA_LINKS.map(medium => {
                 return (
                   <a
                     key={medium.href}
