@@ -38,16 +38,14 @@ export class MyEmbeddedComponent {
     return (
       <nav class="share-nav">
         <button
-          class="share-nav__toggle-button toggle-button"
           onClick={shareButtonClickHandler}
           innerHTML={snsToggleButton}
         >
         </button>
         {
           isShareLinksToggled &&
-            <div class="share-nav__sns-links sns-links">
+            <div class="sns-links">
               <a
-                class="sns-links__link"
                 href={urlShareFacebook}
                 target="_blank"
                 rel="noreferrer noopener"
@@ -56,7 +54,6 @@ export class MyEmbeddedComponent {
               >
               </a>
               <a
-                class="sns-links__link"
                 href={urlShareLINE}
                 target="_blank"
                 rel="noreferrer noopener"
