@@ -13,8 +13,19 @@ export namespace Components {
     interface ReadrFooter {
     }
     interface ReadrHeader {
+        "readrColor": string;
+        "shareBtnColor": string;
+        "shareFbBgColor": string;
+        "shareFbTextColor": string;
+        "shareLineBgColor": string;
+        "shareLineTextColor": string;
     }
     interface ShareNav {
+        "shareBtnColor": string;
+        "shareFbBgColor": string;
+        "shareFbTextColor": string;
+        "shareLineBgColor": string;
+        "shareLineTextColor": string;
     }
 }
 declare global {
@@ -68,10 +79,21 @@ declare namespace LocalJSX {
     }
     interface ReadrHeader {
         "onReadrLogoLinkClick"?: (event: CustomEvent<any>) => void;
+        "readrColor"?: string;
+        "shareBtnColor"?: string;
+        "shareFbBgColor"?: string;
+        "shareFbTextColor"?: string;
+        "shareLineBgColor"?: string;
+        "shareLineTextColor"?: string;
     }
     interface ShareNav {
         "onShareFacebookLinkClick"?: (event: CustomEvent<any>) => void;
         "onShareLineLinkClick"?: (event: CustomEvent<any>) => void;
+        "shareBtnColor"?: string;
+        "shareFbBgColor"?: string;
+        "shareFbTextColor"?: string;
+        "shareLineBgColor"?: string;
+        "shareLineTextColor"?: string;
     }
     interface IntrinsicElements {
         "latest-coverages": LatestCoverages;

@@ -1,4 +1,12 @@
-import { Component, Host, h, Event, EventEmitter, JSX } from '@stencil/core'
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  Event,
+  EventEmitter,
+  JSX,
+} from '@stencil/core'
 
 @Component({
   tag: 'readr-header',
@@ -6,6 +14,13 @@ import { Component, Host, h, Event, EventEmitter, JSX } from '@stencil/core'
   shadow: true,
 })
 export class ReadrHeader {
+  @Prop() readrColor: string
+  @Prop() shareBtnColor = '#000928'
+  @Prop() shareFbBgColor = '#000928'
+  @Prop() shareFbTextColor = '#fff'
+  @Prop() shareLineBgColor = '#000928'
+  @Prop() shareLineTextColor = '#fff'
+
   @Event({ composed: true }) readrLogoLinkClick: EventEmitter
   readrLogoLinkClickHandler(e: MouseEvent): void {
     this.readrLogoLinkClick.emit(e)
@@ -25,16 +40,13 @@ export class ReadrHeader {
               rel="noopener noreferrer"
               onClick={readrLogoLinkClickHandler}
             >
-              <svg
-                enable-background="new 0 0 200 186"
-                viewBox="0 0 200 186"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              {/* eslint-disable-next-line prettier/prettier */}
+              <svg viewBox="0 0 200 186" width="48" height="44.64">
                 <path
                   d="m200 22h-22v-22h-12v22h-22v12h22v22h12v-22h22z"
-                  fill="#fff"
+                  fill={this.readrColor || '#444746'}
                 />
-                <g fill="#444746">
+                <g fill={this.readrColor || '#444746'}>
                   <path d="m114.6 154.4c0 1.7-.5 3.2-1.5 4.4s-2.4 2.1-4.2 2.7l8.2 9.8h-6.3l-7-8.9h-1.6v8.9h-5.2v-24.3h7.3c1.5 0 2.9.2 4.2.5s2.3.8 3.3 1.4c.9.6 1.6 1.4 2.1 2.3.4.9.7 1.9.7 3.2zm-5.1.1c0-1.2-.5-2.1-1.5-2.7s-2.2-.8-3.8-.8h-2.1v7.6h1.5c1.7 0 3.2-.3 4.2-1 1.1-.8 1.7-1.8 1.7-3.1z" />
                   <path d="m119.7 147h14.6v4h-9.5v5.9h9v4h-9v6.3h9.6v4h-14.7z" />
                   <path d="m160.9 171.2h-5.3l-1.7-5.1h-10l-1.7 5.1h-5.3l9.2-24.3h5.5zm-12-20.1-3.6 11h7.3z" />
@@ -45,16 +57,19 @@ export class ReadrHeader {
                 </g>
                 <path
                   d="m91 126-45 31v-31h-34v-126h-12v138h33v46l65-46h102v-12z"
-                  fill="#ddcf21"
-                />
-                <path
-                  d="m200 22h-22v-22h-12v22h-22v12h22v22h12v-22h22z"
-                  fill="#444746"
+                  fill={this.readrColor || '#ddcf21'}
                 />
               </svg>
             </a>
           </h1>
-          <share-nav />
+
+          <share-nav
+            shareBtnColor={this.shareBtnColor}
+            shareFbBgColor={this.shareFbBgColor}
+            shareFbTextColor={this.shareFbTextColor}
+            shareLineBgColor={this.shareLineBgColor}
+            shareLineTextColor={this.shareLineTextColor}
+          />
         </header>
       </Host>
     )
