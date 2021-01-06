@@ -1,13 +1,13 @@
 import { Component, Event, EventEmitter, h, State, JSX } from '@stencil/core'
 import snsToggleButton from '../assets/sns-toggle-button.svg'
 import snsLinkFacebook from '../assets/sns-link-facebook.svg'
-import snsLinkLINE from '../assets/sns-link-line.svg'
+import snsLinkLine from '../assets/sns-link-line.svg'
 
 @Component({
   tag: 'share-nav',
   styleUrl: 'share-nav.scss',
 })
-export class MyEmbeddedComponent {
+export class ShareNav {
   @State() isShareLinksToggled: boolean
   shareButtonClickHandler(): void {
     this.isShareLinksToggled = !this.isShareLinksToggled
@@ -20,22 +20,22 @@ export class MyEmbeddedComponent {
     this.hideShareLinks()
     this.shareFacebookLinkClick.emit(e)
   }
-  @Event({ composed: true }) shareLINELinkClick: EventEmitter
-  shareLINELinkHandler(e: MouseEvent): void {
+  @Event({ composed: true }) shareLineLinkClick: EventEmitter
+  shareLineLinkHandler(e: MouseEvent): void {
     this.hideShareLinks()
-    this.shareLINELinkClick.emit(e)
+    this.shareLineLinkClick.emit(e)
   }
 
   render(): JSX.Element {
     const shareButtonClickHandler = () => this.shareButtonClickHandler()
     const shareFacebookLinkHandler = (e: MouseEvent) =>
       this.shareFacebookLinkHandler(e)
-    const shareLINELinkHandler = (e: MouseEvent) => this.shareLINELinkHandler(e)
+    const shareLineLinkHandler = (e: MouseEvent) => this.shareLineLinkHandler(e)
     const isShareLinksToggled = this.isShareLinksToggled
     const urlCurrentPage =
       typeof window !== 'undefined' ? window.location.href : '/'
     const urlShareFacebook = `https://www.facebook.com/sharer/sharer.php?u=${urlCurrentPage}`
-    const urlShareLINE = `https://social-plugins.line.me/lineit/share?url=${urlCurrentPage}`
+    const urlShareLine = `https://social-plugins.line.me/lineit/share?url=${urlCurrentPage}`
 
     return (
       <nav class="share-nav">
@@ -53,11 +53,11 @@ export class MyEmbeddedComponent {
               innerHTML={snsLinkFacebook}
             ></a>
             <a
-              href={urlShareLINE}
+              href={urlShareLine}
               target="_blank"
               rel="noreferrer noopener"
-              onClick={shareLINELinkHandler}
-              innerHTML={snsLinkLINE}
+              onClick={shareLineLinkHandler}
+              innerHTML={snsLinkLine}
             ></a>
           </div>
         )}

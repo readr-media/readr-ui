@@ -71,7 +71,7 @@ declare namespace LocalJSX {
     }
     interface ShareNav {
         "onShareFacebookLinkClick"?: (event: CustomEvent<any>) => void;
-        "onShareLINELinkClick"?: (event: CustomEvent<any>) => void;
+        "onShareLineLinkClick"?: (event: CustomEvent<any>) => void;
     }
     interface IntrinsicElements {
         "latest-coverages": LatestCoverages;

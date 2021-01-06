@@ -10,7 +10,7 @@
 | Event                    | Description | Type               |
 | ------------------------ | ----------- | ------------------ |
 | `shareFacebookLinkClick` |             | `CustomEvent<any>` |
-| `shareLINELinkClick`     |             | `CustomEvent<any>` |
+| `shareLineLinkClick`     |             | `CustomEvent<any>` |
 
 
 ## Dependencies
