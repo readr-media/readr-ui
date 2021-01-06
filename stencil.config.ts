@@ -4,7 +4,6 @@ import { inlineSvg } from 'stencil-inline-svg'
 
 export const config: Config = {
   namespace: 'web-components',
-  taskQueue: 'async',
   outputTargets: [
     {
       type: 'dist',
