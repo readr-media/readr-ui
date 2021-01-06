@@ -1,6 +1,6 @@
-import { Config } from '@stencil/core';
-import { sass } from '@stencil/sass';
-import { inlineSvg } from 'stencil-inline-svg';
+import { Config } from '@stencil/core'
+import { sass } from '@stencil/sass'
+import { inlineSvg } from 'stencil-inline-svg'
 
 export const config: Config = {
   namespace: 'web-components',
@@ -11,7 +11,7 @@ export const config: Config = {
       esmLoaderPath: '../loader',
     },
     {
-      type: 'dist-custom-elements-bundle'
+      type: 'dist-custom-elements-bundle',
     },
     {
       type: 'docs-readme',
@@ -26,8 +26,8 @@ export const config: Config = {
       injectGlobalPaths: [
         './src/scss/_variables.scss',
         './src/scss/_breakpoints.scss',
-      ]
+      ],
     }),
-    inlineSvg()
-  ]
-};
+    inlineSvg(),
+  ],
+}

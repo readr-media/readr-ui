@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, JSX } from '@stencil/core'
 
 @Component({
   tag: 'readr-donate-link',
@@ -6,7 +6,7 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class ReadrDonateLink {
-  render() {
+  render(): JSX.Element {
     return (
       <Host>
         <a
@@ -17,6 +17,6 @@ export class ReadrDonateLink {
           贊助 READr 一起媒體實驗改革
         </a>
       </Host>
-    );
+    )
   }
 }

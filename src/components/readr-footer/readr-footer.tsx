@@ -1,5 +1,5 @@
-import {Component, Host, h, Event, EventEmitter} from '@stencil/core';
-import SOCIAL_MEDIA_LINKS from './social-media-links';
+import { Component, Host, h, Event, EventEmitter, JSX } from '@stencil/core'
+import SOCIAL_MEDIA_LINKS from './social-media-links'
 
 @Component({
   tag: 'readr-footer',
@@ -7,43 +7,43 @@ import SOCIAL_MEDIA_LINKS from './social-media-links';
   shadow: true,
 })
 export class ReadrFooter {
-  @Event({ composed: true }) aboutLinkClick: EventEmitter;
-  @Event({ composed: true }) contactLinkClick: EventEmitter;
-  @Event({ composed: true }) privacyLinkClick: EventEmitter;
+  @Event({ composed: true }) aboutLinkClick: EventEmitter
+  @Event({ composed: true }) contactLinkClick: EventEmitter
+  @Event({ composed: true }) privacyLinkClick: EventEmitter
 
-  aboutLinkClickHandler(e) {
+  aboutLinkClickHandler(e: MouseEvent): void {
     this.aboutLinkClick.emit(e)
   }
-  contactLinkClickHandler(e) {
+  contactLinkClickHandler(e: MouseEvent): void {
     this.contactLinkClick.emit(e)
   }
-  privacyLinkClickHandler(e) {
+  privacyLinkClickHandler(e: MouseEvent): void {
     this.privacyLinkClick.emit(e)
   }
 
-  render() {
-    const aboutLinkClickHandler = (e) => this.aboutLinkClickHandler(e)
-    const contactLinkClickHandler = (e) => this.contactLinkClickHandler(e)
-    const privacyLinkClickHandler = (e) => this.privacyLinkClickHandler(e)
+  render(): JSX.Element {
+    const aboutLinkClickHandler = (e: MouseEvent) =>
+      this.aboutLinkClickHandler(e)
+    const contactLinkClickHandler = (e: MouseEvent) =>
+      this.contactLinkClickHandler(e)
+    const privacyLinkClickHandler = (e: MouseEvent) =>
+      this.privacyLinkClickHandler(e)
 
     return (
       <Host>
         <footer>
           <div class="media-links">
-            {
-              SOCIAL_MEDIA_LINKS.map(medium => {
-                return (
-                  <a
-                    key={medium.href}
-                    href={medium.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    innerHTML={medium.svgIcon}
-                  >
-                  </a>
-                )
-              })
-            }
+            {SOCIAL_MEDIA_LINKS.map((medium) => {
+              return (
+                <a
+                  key={medium.href}
+                  href={medium.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  innerHTML={medium.svgIcon}
+                ></a>
+              )
+            })}
           </div>
           <div class="us-links">
             <a
@@ -54,10 +54,7 @@ export class ReadrFooter {
             >
               關於我們
             </a>
-            <a
-              href="mailto:readr@readr.tw"
-              onClick={contactLinkClickHandler}
-            >
+            <a href="mailto:readr@readr.tw" onClick={contactLinkClickHandler}>
               聯絡我們
             </a>
             <a
@@ -79,6 +76,6 @@ export class ReadrFooter {
           <div class="copyright">© 2020 READr All Rights Reserved</div>
         </footer>
       </Host>
-    );
+    )
   }
 }

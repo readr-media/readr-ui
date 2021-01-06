@@ -19,5 +19,5 @@ export default [
   {
     href: 'https://github.com/readr-media/readr-data',
     svgIcon: iconGitHub,
-  }
+  },
 ]
