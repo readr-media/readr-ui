@@ -6,9 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface LatestCoverages {
-    }
-    interface ReadrDonateLink {
+    interface ReadrDonateButton {
     }
     interface ReadrFooter {
     }
@@ -20,6 +18,8 @@ export namespace Components {
         "shareLineBgColor": string;
         "shareLineTextColor": string;
     }
+    interface ReadrLatestCoverages {
+    }
     interface ShareNav {
         "shareBtnColor": string;
         "shareFbBgColor": string;
@@ -29,17 +29,11 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLLatestCoveragesElement extends Components.LatestCoverages, HTMLStencilElement {
+    interface HTMLReadrDonateButtonElement extends Components.ReadrDonateButton, HTMLStencilElement {
     }
-    var HTMLLatestCoveragesElement: {
-        prototype: HTMLLatestCoveragesElement;
-        new (): HTMLLatestCoveragesElement;
-    };
-    interface HTMLReadrDonateLinkElement extends Components.ReadrDonateLink, HTMLStencilElement {
-    }
-    var HTMLReadrDonateLinkElement: {
-        prototype: HTMLReadrDonateLinkElement;
-        new (): HTMLReadrDonateLinkElement;
+    var HTMLReadrDonateButtonElement: {
+        prototype: HTMLReadrDonateButtonElement;
+        new (): HTMLReadrDonateButtonElement;
     };
     interface HTMLReadrFooterElement extends Components.ReadrFooter, HTMLStencilElement {
     }
@@ -53,6 +47,12 @@ declare global {
         prototype: HTMLReadrHeaderElement;
         new (): HTMLReadrHeaderElement;
     };
+    interface HTMLReadrLatestCoveragesElement extends Components.ReadrLatestCoverages, HTMLStencilElement {
+    }
+    var HTMLReadrLatestCoveragesElement: {
+        prototype: HTMLReadrLatestCoveragesElement;
+        new (): HTMLReadrLatestCoveragesElement;
+    };
     interface HTMLShareNavElement extends Components.ShareNav, HTMLStencilElement {
     }
     var HTMLShareNavElement: {
@@ -60,17 +60,15 @@ declare global {
         new (): HTMLShareNavElement;
     };
     interface HTMLElementTagNameMap {
-        "latest-coverages": HTMLLatestCoveragesElement;
-        "readr-donate-link": HTMLReadrDonateLinkElement;
+        "readr-donate-button": HTMLReadrDonateButtonElement;
         "readr-footer": HTMLReadrFooterElement;
         "readr-header": HTMLReadrHeaderElement;
+        "readr-latest-coverages": HTMLReadrLatestCoveragesElement;
         "share-nav": HTMLShareNavElement;
     }
 }
 declare namespace LocalJSX {
-    interface LatestCoverages {
-    }
-    interface ReadrDonateLink {
+    interface ReadrDonateButton {
     }
     interface ReadrFooter {
         "onAboutLinkClick"?: (event: CustomEvent<any>) => void;
@@ -86,6 +84,8 @@ declare namespace LocalJSX {
         "shareLineBgColor"?: string;
         "shareLineTextColor"?: string;
     }
+    interface ReadrLatestCoverages {
+    }
     interface ShareNav {
         "onShareFacebookLinkClick"?: (event: CustomEvent<any>) => void;
         "onShareLineLinkClick"?: (event: CustomEvent<any>) => void;
@@ -96,10 +96,10 @@ declare namespace LocalJSX {
         "shareLineTextColor"?: string;
     }
     interface IntrinsicElements {
-        "latest-coverages": LatestCoverages;
-        "readr-donate-link": ReadrDonateLink;
+        "readr-donate-button": ReadrDonateButton;
         "readr-footer": ReadrFooter;
         "readr-header": ReadrHeader;
+        "readr-latest-coverages": ReadrLatestCoverages;
         "share-nav": ShareNav;
     }
 }
@@ -107,10 +107,10 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "latest-coverages": LocalJSX.LatestCoverages & JSXBase.HTMLAttributes<HTMLLatestCoveragesElement>;
-            "readr-donate-link": LocalJSX.ReadrDonateLink & JSXBase.HTMLAttributes<HTMLReadrDonateLinkElement>;
+            "readr-donate-button": LocalJSX.ReadrDonateButton & JSXBase.HTMLAttributes<HTMLReadrDonateButtonElement>;
             "readr-footer": LocalJSX.ReadrFooter & JSXBase.HTMLAttributes<HTMLReadrFooterElement>;
             "readr-header": LocalJSX.ReadrHeader & JSXBase.HTMLAttributes<HTMLReadrHeaderElement>;
+            "readr-latest-coverages": LocalJSX.ReadrLatestCoverages & JSXBase.HTMLAttributes<HTMLReadrLatestCoveragesElement>;
             "share-nav": LocalJSX.ShareNav & JSXBase.HTMLAttributes<HTMLShareNavElement>;
         }
     }

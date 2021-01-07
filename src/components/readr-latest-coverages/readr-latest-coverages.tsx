@@ -70,11 +70,11 @@ async function fetchData(url: string) {
 }
 
 @Component({
-  tag: 'latest-coverages',
-  styleUrl: 'latest-coverages.scss',
+  tag: 'readr-latest-coverages',
+  styleUrl: 'readr-latest-coverages.scss',
   shadow: true,
 })
-export class LatestCoverages {
+export class ReadrLatestCoverages {
   @State() coverages: Coverage[]
 
   async componentWillLoad(): Promise<void> {

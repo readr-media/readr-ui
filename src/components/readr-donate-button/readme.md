@@ -1,4 +1,4 @@
-# readr-donate-link
+# readr-donate-button
 
 
 

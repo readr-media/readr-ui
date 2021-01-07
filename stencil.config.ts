@@ -23,8 +23,8 @@ export const config: Config = {
   plugins: [
     sass({
       injectGlobalPaths: [
-        './src/scss/_variables.scss',
-        './src/scss/_breakpoints.scss',
+        './src/globals/_variables.scss',
+        './src/globals/_breakpoints.scss',
       ],
     }),
     inlineSvg(),

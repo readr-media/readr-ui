@@ -1,11 +1,11 @@
 import { Component, Host, h, JSX } from '@stencil/core'
 
 @Component({
-  tag: 'readr-donate-link',
-  styleUrl: 'readr-donate-link.scss',
+  tag: 'readr-donate-button',
+  styleUrl: 'readr-donate-button.scss',
   shadow: true,
 })
-export class ReadrDonateLink {
+export class ReadrDonateButton {
   render(): JSX.Element {
     return (
       <Host>
