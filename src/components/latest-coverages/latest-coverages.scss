@@ -1,0 +1,70 @@
+@import "../../css/base.css";
+
+:host {
+  display: block;
+  font-family: "Noto Sans CJK TC", system-ui, -apple-system, sans-serif;
+}
+
+h3,
+p {
+  line-height: 1.5;
+}
+
+h3 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 17px;
+  font-weight: 700;
+  @include media-breakpoint-up(md) {
+    font-size: 20px;
+  }
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+p {
+  color: rgba(0, 0, 0, 0.66);
+  font-size: 13px;
+}
+
+.coverage {
+  display: flex;
+  align-items: flex-start;
+
+  + .coverage {
+    margin: 10px 0 0;
+    @include media-breakpoint-up(md) {
+      margin: 20px 0 0;
+    }
+  }
+}
+
+.coverage__image img {
+  display: block;
+  width: 82px;
+  height: 82px;
+  object-fit: cover;
+  @include media-breakpoint-up(md) {
+    width: 200px;
+    height: 100px;
+  }
+}
+
+.coverage__info {
+  flex: 1;
+  margin: 0 0 0 20px;
+
+  h3 {
+    display: -webkit-box;
+    text-align: justify;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  p {
+    margin: 10px 0 0;
+  }
+}

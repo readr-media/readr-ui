@@ -71,7 +71,7 @@ async function fetchData(url: string) {
 
 @Component({
   tag: 'latest-coverages',
-  styleUrl: 'latest-coverages.css',
+  styleUrl: 'latest-coverages.scss',
   shadow: true,
 })
 export class LatestCoverages {
