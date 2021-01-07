@@ -2,32 +2,41 @@
 
 :host {
   display: block;
+  line-height: 1.8;
 }
 
-// borrow from https://github.com/readr-media/readr-nuxt/blob/dev/components/ui/ButtonDonate.vue
+$letter-spacing: 2.5px;
+
 a {
   font-family: "Noto Sans CJK TC", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   display: block;
-  background-color: #ebf02c;
-  letter-spacing: 2.5px;
+  letter-spacing: $letter-spacing;
   color: #000928;
   font-size: 15px;
-  border: 1px solid #f5ebff;
   font-weight: 700;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  border-radius: 2px;
   text-align: center;
   position: relative;
-  transition: background-color 0.3s, color 0.3s;
-  &:hover {
-    background-color: #04295e;
-    color: #fff;
+
+  div {
+    background-color: #ebf02c;
+    padding: 8px 0 8px $letter-spacing;
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 1;
+    position: relative;
+    border: 1px solid #f5ebff;
+    border-radius: 2px;
+
+    &:hover {
+      background-color: #04295e;
+      color: #fff;
+    }
+  
+    &:active {
+      background-color: #000928;
+    }
   }
-  &:active {
-    background-color: #000928;
-  }
-  &::after {
+
+  &::before {
     content: '';
     display: block;
     position: absolute;
@@ -37,6 +46,5 @@ a {
     height: 100%;
     background-color: #000928;
     border-radius: 2px;
-    z-index: -1;
   }
 }

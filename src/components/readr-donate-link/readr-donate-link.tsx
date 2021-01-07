@@ -14,7 +14,7 @@ export class ReadrDonateLink {
           target="_blank"
           rel="noreferrer noopener"
         >
-          贊助 READr 一起媒體實驗改革
+          <div>贊助 READr 一起媒體實驗改革</div>
         </a>
       </Host>
     )
