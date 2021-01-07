@@ -52,8 +52,8 @@ function restructureData(data: Post): Record<string, unknown> {
   }
 }
 
-function getReportHref(slug) {
-  return READR_MEDIA_OLD_PROJECT_SLUGS.some((ele) => ele === slug)
+function getReportHref(slug: string) {
+  return READR_MEDIA_OLD_PROJECT_SLUGS.includes(slug)
     ? `${OLD_REPORT_URL}/${slug}`
     : `${REPORT_URL}/${slug}`
 }
@@ -79,7 +79,7 @@ export class LatestCoverages {
 
   async componentWillLoad(): Promise<void> {
     const items = await fetchData(DATA_URL)
-    this.coverages = items.map((item) => restructureData(item))
+    this.coverages = items.map((item: Post) => restructureData(item))
   }
 
   render(): JSX.Element {
