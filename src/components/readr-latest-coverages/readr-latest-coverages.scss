@@ -1,10 +1,5 @@
-@import '../../css/base.css';
-
-:host {
-  display: block;
-  line-height: 1.5;
-  font-family: 'Noto Sans CJK TC', system-ui, -apple-system, sans-serif;
-}
+@import '../../globals/base.css';
+@import '../../globals/readr.scss';
 
 $letter-spacing: 5px;
 

@@ -1,14 +1,7 @@
-@import '../../css/base.css';
-
-:host {
-  display: block;
-  line-height: 1.5;
-}
+@import '../../globals/base.css';
+@import '../../globals/readr.scss';
 
 footer {
-  font-family: 'Noto Sans CJK TC', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-    'Helvetica Neue', sans-serif;
   padding: 32px 0 16px 0;
   font-size: 15px;
   text-align: center;
