@@ -2,18 +2,37 @@
 
 :host {
   display: block;
+  line-height: 1.5;
   font-family: 'Noto Sans CJK TC', system-ui, -apple-system, sans-serif;
 }
 
-h3,
-p {
-  line-height: 1.5;
+$letter-spacing: 5px;
+
+h2 {
+  background-color: #f5ebff;
+  border-radius: 2px;
+  text-align: center;
+  color: #04295e;
+  font-weight: 900;
+  font-size: 18px;
+  padding: 8px 24px 8px (24px + $letter-spacing);
+  margin-bottom: 12px;
+  letter-spacing: $letter-spacing;
+  @include media-breakpoint-up(md) {
+    font-size: 21px;
+    margin-bottom: 14px;
+  }
 }
 
 h3 {
   color: rgba(0, 0, 0, 0.87);
   font-size: 17px;
   font-weight: 700;
+  display: -webkit-box;
+  text-align: justify;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
   @include media-breakpoint-up(md) {
     font-size: 20px;
   }
@@ -27,6 +46,7 @@ a {
 p {
   color: rgba(0, 0, 0, 0.66);
   font-size: 13px;
+  margin: 10px 0 0;
 }
 
 .coverage {
@@ -41,7 +61,7 @@ p {
   }
 }
 
-.coverage__image img {
+img {
   display: block;
   width: 82px;
   height: 82px;
@@ -52,19 +72,7 @@ p {
   }
 }
 
-.coverage__info {
+.info {
   flex: 1;
   margin: 0 0 0 20px;
-
-  h3 {
-    display: -webkit-box;
-    text-align: justify;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-  }
-
-  p {
-    margin: 10px 0 0;
-  }
 }

@@ -85,12 +85,15 @@ export class ReadrLatestCoverages {
   render(): JSX.Element {
     return (
       <Host>
+        <h2>更多專題</h2>
+
         {this.coverages.map((coverage) => (
           <div class="coverage">
-            <a class="coverage__image" href={coverage.href} target="_blank">
-              <img src={coverage.image} alt={coverage.title} />
+            <a href={coverage.href} target="_blank">
+              <img src={coverage.image} alt="" />
             </a>
-            <a class="coverage__info" href={coverage.href} target="_blank">
+
+            <a class="info" href={coverage.href} target="_blank">
               <h3>{coverage.title}</h3>
               <p>{coverage.publishedAt}</p>
             </a>
