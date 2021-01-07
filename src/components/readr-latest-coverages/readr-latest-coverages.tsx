@@ -84,22 +84,24 @@ export class ReadrLatestCoverages {
 
   render(): JSX.Element {
     return (
-      <Host>
-        <h2>更多專題</h2>
+      this.coverages.length > 0 && (
+        <Host>
+          <h2>更多專題</h2>
 
-        {this.coverages.map((coverage) => (
-          <div class="coverage">
-            <a href={coverage.href} target="_blank">
-              <img src={coverage.image} alt="" />
-            </a>
+          {this.coverages.map((coverage) => (
+            <div class="coverage">
+              <a href={coverage.href} target="_blank">
+                <img src={coverage.image} alt="" />
+              </a>
 
-            <a class="info" href={coverage.href} target="_blank">
-              <h3>{coverage.title}</h3>
-              <p>{coverage.publishedAt}</p>
-            </a>
-          </div>
-        ))}
-      </Host>
+              <a class="info" href={coverage.href} target="_blank">
+                <h3>{coverage.title}</h3>
+                <p>{coverage.publishedAt}</p>
+              </a>
+            </div>
+          ))}
+        </Host>
+      )
     )
   }
 }
