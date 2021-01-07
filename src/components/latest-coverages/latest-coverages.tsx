@@ -1,20 +1,5 @@
 import { Component, Host, State, h, JSX } from '@stencil/core'
-
-const TEMP_OLD_PROJECTS_SLUGS = [
-  'china-company',
-  'unitedfront',
-  'food-delivery',
-  'extra-curriculum',
-  'election-2020',
-  'formosaincident',
-  'the-third-force',
-  'maskmap',
-  'ncov2019search',
-  'backtoformosa',
-  'covid19-disinformation-vis',
-  'covid19-disinformation',
-  'eid',
-]
+import { READR_MEDIA_OLD_PROJECT_SLUGS } from '@readr-media/old-news-project-slugs'
 
 const DATA_URL =
   'https://www.readr.tw/api/public/posts?type={"$in":[1,4]}&sort=-published_at&max_result=3'
@@ -68,7 +53,7 @@ function restructureData(data: Post): Record<string, unknown> {
 }
 
 function getReportHref(slug) {
-  return TEMP_OLD_PROJECTS_SLUGS.some((ele) => ele === slug)
+  return READR_MEDIA_OLD_PROJECT_SLUGS.some((ele) => ele === slug)
     ? `${OLD_REPORT_URL}/${slug}`
     : `${REPORT_URL}/${slug}`
 }
