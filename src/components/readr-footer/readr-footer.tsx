@@ -73,7 +73,9 @@ export class ReadrFooter {
               意見回饋
             </a>
           </div>
-          <div class="copyright">© 2020 READr All Rights Reserved</div>
+          <div class="copyright">
+            © {new Date().getFullYear()} READr All Rights Reserved
+          </div>
         </footer>
       </Host>
     )
