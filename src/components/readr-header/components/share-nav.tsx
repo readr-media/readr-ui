@@ -16,12 +16,12 @@ export class ShareNav {
   hideShareLinks(): void {
     this.isShareLinksToggled = false
   }
-  @Event({ composed: true }) shareFacebookLinkClick: EventEmitter
+  @Event() shareFacebookLinkClick: EventEmitter
   shareFacebookLinkHandler(e: MouseEvent): void {
     this.hideShareLinks()
     this.shareFacebookLinkClick.emit(e)
   }
-  @Event({ composed: true }) shareLineLinkClick: EventEmitter
+  @Event() shareLineLinkClick: EventEmitter
   shareLineLinkHandler(e: MouseEvent): void {
     this.hideShareLinks()
     this.shareLineLinkClick.emit(e)

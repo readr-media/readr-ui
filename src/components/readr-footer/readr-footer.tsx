@@ -7,9 +7,9 @@ import SOCIAL_MEDIA_LINKS from './social-media-links'
   scoped: true,
 })
 export class ReadrFooter {
-  @Event({ composed: true }) aboutLinkClick: EventEmitter
-  @Event({ composed: true }) contactLinkClick: EventEmitter
-  @Event({ composed: true }) privacyLinkClick: EventEmitter
+  @Event() aboutLinkClick: EventEmitter
+  @Event() contactLinkClick: EventEmitter
+  @Event() privacyLinkClick: EventEmitter
 
   aboutLinkClickHandler(e: MouseEvent): void {
     this.aboutLinkClick.emit(e)

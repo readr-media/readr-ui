@@ -7,7 +7,7 @@ import readrLogo from './assets/readr-logo.svg'
   scoped: true,
 })
 export class ReadrHeader {
-  @Event({ composed: true }) readrLogoLinkClick: EventEmitter
+  @Event() readrLogoLinkClick: EventEmitter
   readrLogoLinkClickHandler(e: MouseEvent): void {
     this.readrLogoLinkClick.emit(e)
   }
