@@ -1,5 +1,6 @@
-@import '../../globals/base.css';
-@import '../../globals/readr.scss';
+:host {
+  display: block;
+}
 
 header {
   padding: 12px 16px;

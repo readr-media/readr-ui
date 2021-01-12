@@ -1,5 +1,17 @@
-@import '../../globals/base.css';
-@import '../../globals/readr.scss';
+:host {
+  display: block;
+  line-height: 1.5;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+
+  + a {
+    margin-left: 16px;
+  }
+}
 
 footer {
   padding: 32px 0 16px 0;
@@ -25,10 +37,6 @@ footer {
     order: 3;
     margin: 0 0 0 28px;
   }
-
-  a + a {
-    margin-left: 16px;
-  }
 }
 
 .us-links {
@@ -44,7 +52,6 @@ footer {
   }
 
   a + a {
-    margin-left: 16px;
     @include media-breakpoint-up(sm) {
       margin-left: 42px;
     }
@@ -60,9 +67,4 @@ footer {
     order: 2;
     margin-left: auto;
   }
-}
-
-a {
-  display: block;
-  color: #000;
 }

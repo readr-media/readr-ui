@@ -4,7 +4,7 @@ import SOCIAL_MEDIA_LINKS from './social-media-links'
 @Component({
   tag: 'readr-footer',
   styleUrl: 'readr-footer.scss',
-  shadow: true,
+  scoped: true,
 })
 export class ReadrFooter {
   @Event({ composed: true }) aboutLinkClick: EventEmitter

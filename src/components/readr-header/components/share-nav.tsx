@@ -11,6 +11,7 @@ import {
 @Component({
   tag: 'share-nav',
   styleUrl: 'share-nav.scss',
+  scoped: true,
 })
 export class ShareNav {
   @Prop() shareBtnColor = '#000928'

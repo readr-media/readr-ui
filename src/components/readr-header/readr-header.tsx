@@ -11,7 +11,7 @@ import {
 @Component({
   tag: 'readr-header',
   styleUrl: 'readr-header.scss',
-  shadow: true,
+  scoped: true,
 })
 export class ReadrHeader {
   @Prop() readrColor: string

@@ -4,6 +4,10 @@ import { inlineSvg } from 'stencil-inline-svg'
 
 export const config: Config = {
   namespace: 'web-components',
+
+  // https://stenciljs.com/docs/styling#global-styles
+  globalStyle: 'src/globals/_web-components.scss',
+
   outputTargets: [
     {
       type: 'dist',

@@ -3,7 +3,7 @@ import { Component, Host, h, JSX } from '@stencil/core'
 @Component({
   tag: 'readr-donate-button',
   styleUrl: 'readr-donate-button.scss',
-  shadow: true,
+  scoped: true,
 })
 export class ReadrDonateButton {
   render(): JSX.Element {

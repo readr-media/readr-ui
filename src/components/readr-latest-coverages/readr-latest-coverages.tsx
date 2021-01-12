@@ -72,7 +72,7 @@ async function fetchData(url: string) {
 @Component({
   tag: 'readr-latest-coverages',
   styleUrl: 'readr-latest-coverages.scss',
-  shadow: true,
+  scoped: true,
 })
 export class ReadrLatestCoverages {
   @State() coverages: Coverage[]
