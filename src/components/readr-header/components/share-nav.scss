@@ -17,18 +17,8 @@ button {
   }
 }
 
-svg {
-  width: 100%;
-  height: auto;
-}
-
-a {
-  width: 48px;
-  display: block;
-
-  + a {
-    margin-top: 2px;
-  }
+a + a {
+  margin-top: 2px;
 }
 
 .sns-links {

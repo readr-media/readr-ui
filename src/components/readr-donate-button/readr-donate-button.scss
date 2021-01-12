@@ -15,32 +15,22 @@ a {
   position: relative;
 
   div {
-    background-color: var(--readr-donate-button__btn-bg-color, #ebf02c);
-    color: var(--readr-donate-button__btn-color, #000928);
+    background-color: #ebf02c;
+    color: #000928;
     padding: 8px 0 8px $letter-spacing;
     transition: background-color 0.3s, color 0.3s;
     z-index: 1;
     position: relative;
-    border: 1px solid var(--readr-donate-button__btn-border-color, #f5ebff);
+    border: 1px solid #f5ebff;
     border-radius: 2px;
 
     &:hover {
-      background-color: var(
-        --readr-donate-button__btn-bg-color__hover,
-        #04295e
-      );
-      color: var(--readr-donate-button__btn-color__hover, #fff);
+      background-color: #04295e;
+      color: #fff;
     }
 
     &:active {
-      background-color: var(
-        --readr-donate-button__btn-bg-color__active,
-        var(--readr-donate-button__btn-bg-color__hover#000928)
-      );
-      color: var(
-        --readr-donate-button__btn-color__active,
-        var(--readr-donate-button__btn-color__hover, #fff)
-      );
+      background-color: #000928;
       transition: none;
     }
   }
@@ -53,7 +43,7 @@ a {
     left: 4px;
     width: 100%;
     height: 100%;
-    background-color: var(--readr-donate-button__shadow-bg-color, #000928);
+    background-color: #000928;
     border-radius: 2px;
   }
 }

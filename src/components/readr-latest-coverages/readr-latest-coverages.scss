@@ -6,10 +6,10 @@
 $letter-spacing: 5px;
 
 h2 {
-  background-color: var(--readr-latest-coverages__title-bg-color, #f5ebff);
+  background-color: #f5ebff;
   border-radius: 2px;
   text-align: center;
-  color: var(--readr-latest-coverages__title-color, #04295e);
+  color: #04295e;
   font-weight: 900;
   font-size: 18px;
   padding: 8px 24px 8px (24px + $letter-spacing);
