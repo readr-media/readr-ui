@@ -6,6 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface ReadrAnnotation {
+        "text": string;
+    }
     interface ReadrDonateButton {
     }
     interface ReadrFooter {
@@ -18,6 +21,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLReadrAnnotationElement extends Components.ReadrAnnotation, HTMLStencilElement {
+    }
+    var HTMLReadrAnnotationElement: {
+        prototype: HTMLReadrAnnotationElement;
+        new (): HTMLReadrAnnotationElement;
+    };
     interface HTMLReadrDonateButtonElement extends Components.ReadrDonateButton, HTMLStencilElement {
     }
     var HTMLReadrDonateButtonElement: {
@@ -49,6 +58,7 @@ declare global {
         new (): HTMLShareNavElement;
     };
     interface HTMLElementTagNameMap {
+        "readr-annotation": HTMLReadrAnnotationElement;
         "readr-donate-button": HTMLReadrDonateButtonElement;
         "readr-footer": HTMLReadrFooterElement;
         "readr-header": HTMLReadrHeaderElement;
@@ -57,6 +67,10 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ReadrAnnotation {
+        "onToggle"?: (event: CustomEvent<any>) => void;
+        "text"?: string;
+    }
     interface ReadrDonateButton {
     }
     interface ReadrFooter {
@@ -74,6 +88,7 @@ declare namespace LocalJSX {
         "onShareLineLinkClick"?: (event: CustomEvent<any>) => void;
     }
     interface IntrinsicElements {
+        "readr-annotation": ReadrAnnotation;
         "readr-donate-button": ReadrDonateButton;
         "readr-footer": ReadrFooter;
         "readr-header": ReadrHeader;
@@ -85,6 +100,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "readr-annotation": LocalJSX.ReadrAnnotation & JSXBase.HTMLAttributes<HTMLReadrAnnotationElement>;
             "readr-donate-button": LocalJSX.ReadrDonateButton & JSXBase.HTMLAttributes<HTMLReadrDonateButtonElement>;
             "readr-footer": LocalJSX.ReadrFooter & JSXBase.HTMLAttributes<HTMLReadrFooterElement>;
             "readr-header": LocalJSX.ReadrHeader & JSXBase.HTMLAttributes<HTMLReadrHeaderElement>;

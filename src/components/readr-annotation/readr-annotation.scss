@@ -1,0 +1,13 @@
+:host {
+  display: inline;
+}
+
+.annotated {
+  cursor: pointer;
+  user-select: none;
+}
+
+.annotation {
+  display: inline-block;
+  width: 100%;
+}
