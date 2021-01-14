@@ -17,7 +17,6 @@ export class ReadrDonateButton {
         <a
           href="https://www.readr.tw/donate"
           target="_blank"
-          rel="noreferrer noopener"
           onClick={this.handleClick}
         >
           <div>贊助 READr 一起媒體實驗改革</div>

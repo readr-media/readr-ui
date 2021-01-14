@@ -49,7 +49,6 @@ export class ReadrFooter {
             <a
               href="https://www.readr.tw/about"
               target="_blank"
-              rel="noopener noreferrer"
               onClick={aboutLinkClickHandler}
             >
               關於我們
@@ -60,7 +59,6 @@ export class ReadrFooter {
             <a
               href="https://www.readr.tw/privacy-rule"
               target="_blank"
-              rel="noopener noreferrer"
               onClick={privacyLinkClickHandler}
             >
               隱私政策

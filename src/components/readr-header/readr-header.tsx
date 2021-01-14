@@ -23,7 +23,6 @@ export class ReadrHeader {
             <a
               href="https://www.readr.tw"
               target="_blank"
-              rel="noopener noreferrer"
               onClick={readrLogoLinkClickHandler}
               innerHTML={readrLogo}
             ></a>
