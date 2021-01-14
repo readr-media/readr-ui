@@ -1,4 +1,12 @@
-import { Component, Host, State, h, JSX } from '@stencil/core'
+import {
+  Component,
+  Host,
+  State,
+  Event,
+  EventEmitter,
+  h,
+  JSX,
+} from '@stencil/core'
 import { READR_MEDIA_OLD_PROJECT_SLUGS } from '@readr-media/old-news-project-slugs'
 
 const DATA_URL =
@@ -77,6 +85,11 @@ async function fetchData(url: string) {
 export class ReadrLatestCoverages {
   @State() coverages: Coverage[]
 
+  @Event() clickCoverage: EventEmitter
+  handleClick = (): void => {
+    this.clickCoverage.emit()
+  }
+
   async componentWillLoad(): Promise<void> {
     const items = await fetchData(DATA_URL)
     this.coverages = items.map((item: Post) => restructureData(item))
@@ -90,11 +103,20 @@ export class ReadrLatestCoverages {
 
           {this.coverages.map((coverage) => (
             <div class="coverage">
-              <a href={coverage.href} target="_blank">
+              <a
+                href={coverage.href}
+                target="_blank"
+                onClick={this.handleClick}
+              >
                 <img src={coverage.image} alt="" />
               </a>
 
-              <a class="info" href={coverage.href} target="_blank">
+              <a
+                class="info"
+                href={coverage.href}
+                target="_blank"
+                onClick={this.handleClick}
+              >
                 <h3>{coverage.title}</h3>
                 <p>{coverage.publishedAt}</p>
               </a>

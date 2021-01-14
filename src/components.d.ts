@@ -72,6 +72,7 @@ declare namespace LocalJSX {
         "text"?: string;
     }
     interface ReadrDonateButton {
+        "onClickButton"?: (event: CustomEvent<any>) => void;
     }
     interface ReadrFooter {
         "onAboutLinkClick"?: (event: CustomEvent<any>) => void;
@@ -82,6 +83,7 @@ declare namespace LocalJSX {
         "onReadrLogoLinkClick"?: (event: CustomEvent<any>) => void;
     }
     interface ReadrLatestCoverages {
+        "onClickCoverage"?: (event: CustomEvent<any>) => void;
     }
     interface ShareNav {
         "onShareFacebookLinkClick"?: (event: CustomEvent<any>) => void;
