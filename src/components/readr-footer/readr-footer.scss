@@ -14,8 +14,7 @@ a {
 }
 
 footer {
-  padding: 32px 0 16px 0;
-  font-size: 15px;
+  padding: 32px 0 24px 0;
   text-align: center;
   max-width: 1096px;
   margin: 0 auto;
@@ -41,18 +40,22 @@ footer {
   line-height: 23px;
   padding: 0 20px;
   line-height: 1.7;
-  margin-bottom: 8px;
+  margin-bottom: 32px;
   @include media-breakpoint-up(lg) {
     order: 1;
     padding: 0;
-    margin-bottom: 32px;
+  }
+
+  a {
+    width: 32px;
+    @include media-breakpoint-up(sm) {
+      width: auto;
+    }
   }
 
   a + a {
-    @include media-breakpoint-up(sm) {
-      margin-left: 42px;
-    }
-    @include media-breakpoint-up(lg) {
+    margin-left: 40px;
+    @include media-breakpoint-up(md) {
       margin-left: 66px;
     }
   }
@@ -64,12 +67,16 @@ footer {
   line-height: 20px;
   color: rgba(0, 0, 0, 0.5);
   margin: 0 0 12px;
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(md) {
     display: flex;
     justify-content: center;
     align-items: center;
-    li + li {
-      position: relative;
+  }
+  li + li {
+    position: relative;
+    margin: 8px 0 0;
+    @include media-breakpoint-up(md) {
+      margin: 0;
       padding: 0 0 0 17px;
       &::before {
         content: '';
