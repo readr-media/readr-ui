@@ -71,6 +71,11 @@ export class ReadrFooter {
               意見回饋
             </a>
           </div>
+          <ul class="company-info">
+            <li>精鏡傳媒股份有限公司</li>
+            <li>114 台北市內湖區堤頂大道一段 365 號 7 樓</li>
+            <li>readr@readr.tw</li>
+          </ul>
           <div class="copyright">
             © {new Date().getFullYear()} READr All Rights Reserved
           </div>

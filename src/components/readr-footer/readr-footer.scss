@@ -9,22 +9,16 @@ a {
   color: #000;
 
   + a {
-    margin-left: 16px;
+    margin-left: 24px;
   }
 }
 
 footer {
-  padding: 32px 0 16px 0;
-  font-size: 15px;
+  padding: 32px 0 24px 0;
   text-align: center;
   max-width: 1096px;
   margin: 0 auto;
   box-sizing: content-box;
-  @include media-breakpoint-up(lg) {
-    display: flex;
-    align-items: center;
-    padding: 28px 20px;
-  }
 }
 
 .media-links {
@@ -35,34 +29,72 @@ footer {
   line-height: 1.4;
   @include media-breakpoint-up(lg) {
     order: 3;
-    margin: 0 0 0 28px;
+    margin: 0 0 32px 0;
   }
 }
 
 .us-links {
   display: flex;
   justify-content: center;
+  font-size: 16px;
+  line-height: 23px;
   padding: 0 20px;
   line-height: 1.7;
-  margin-bottom: 8px;
+  margin-bottom: 32px;
   @include media-breakpoint-up(lg) {
     order: 1;
     padding: 0;
-    margin-bottom: 0;
+  }
+
+  a {
+    width: 32px;
+    @include media-breakpoint-up(sm) {
+      width: auto;
+    }
   }
 
   a + a {
-    @include media-breakpoint-up(sm) {
-      margin-left: 42px;
-    }
-    @include media-breakpoint-up(lg) {
+    margin-left: 40px;
+    @include media-breakpoint-up(md) {
       margin-left: 66px;
     }
   }
 }
 
+.company-info {
+  list-style: none;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0 0 12px;
+  @include media-breakpoint-up(md) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  li + li {
+    position: relative;
+    margin: 8px 0 0;
+    @include media-breakpoint-up(md) {
+      margin: 0;
+      padding: 0 0 0 17px;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 1px;
+        left: 9px;
+        bottom: 2px;
+        width: 1px;
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
+
 .copyright {
-  color: #4a4a4a;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(0, 0, 0, 0.3);
   @include media-breakpoint-up(lg) {
     order: 2;
     margin-left: auto;
