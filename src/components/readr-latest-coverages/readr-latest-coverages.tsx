@@ -6,71 +6,107 @@ import {
   EventEmitter,
   h,
   JSX,
+  getAssetPath,
 } from '@stencil/core'
-import { READR_MEDIA_OLD_PROJECT_SLUGS } from '@readr-media/old-news-project-slugs'
 
+const SITE_URL = 'https://www.readr.tw'
+const MAX_RESULT = 4
 const DATA_URL =
-  'https://www.readr.tw/api/public/posts?type={"$in":[1,4]}&sort=-published_at&max_result=3'
-const NEWS_URL = 'https://www.readr.tw/post'
-const REPORT_URL = 'https://www.readr.tw/project/3'
-const OLD_REPORT_URL = 'https://www.readr.tw/project'
+  `${SITE_URL}/api/public/latest-posts?maxResult=${MAX_RESULT}`
 
 type Post = {
-  title: string
-  type: number
+  id: string
   slug: string
-  id: number
-  hero_image: string
-  og_image: string
-  published_at: string
+  title: string
+  style: string
+  heroImage: any
+  ogImage: any
+  publishTime: string
+  readingTime: number
 }
 
 type Coverage = {
-  title: string
-  href: string
-  image: string
-  publishedAt: string
+  id: string,
+  title: string,
+  href: string,
+  date: string,
+  readTime: string,
+  isReport: boolean,
+  img: any,
 }
 
-function format(datatimeString: string): string {
-  const MONTHS = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ]
-  const date = new Date(datatimeString)
-  return `${MONTHS[date.getMonth()]}. ${date.getDate()}, ${date.getFullYear()}`
-}
-
-function restructureData(data: Post): Record<string, unknown> {
-  return {
-    title: data.title,
-    href: data.type === 4 ? getReportHref(data.slug) : `${NEWS_URL}/${data.id}`,
-    image: data.og_image || data.hero_image,
-    publishedAt: format(data.published_at),
+function getHref(style: string, id: string, slug: string) {
+  switch (style) {
+    case 'news':
+      return `${SITE_URL}/post/${id}`
+    case 'embedded':
+      return `${SITE_URL}/post/${id}`
+    case 'report':
+      return `${SITE_URL}/project/${slug}`
+    case 'project3':
+      return `${SITE_URL}/project/3/${slug}`
+    default:
+      return undefined
   }
 }
 
-function getReportHref(slug: string) {
-  return READR_MEDIA_OLD_PROJECT_SLUGS.includes(slug)
-    ? `${OLD_REPORT_URL}/${slug}`
-    : `${REPORT_URL}/${slug}`
+function formatPostDate(datetime: string) {
+  const target = new Date(datetime) ?? undefined
+  if (!target) return ''
+  const now = new Date()
+  const nowYear = now.getFullYear()
+  const year = target.getFullYear()
+  const month = target.getMonth() + 1
+  const date = target.getDate()
+  const formatDate = date < 10 ? `0${date}` : `${date}`
+  return nowYear === year ? `${month}/${formatDate}` : `${year}/${month}/${formatDate}`
+}
+
+function formatReadTime(readingTime: number = 0) {
+  return readingTime ? `閱讀時間 ${readingTime} 分鐘` : `閱讀時間 10 分鐘`
+}
+
+function isReport(style: string = '') {
+  return style === 'report' || style === 'project3' || style === 'embedded'
+}
+
+function restructureData(post: Post): Record<string, unknown> {
+  const {
+    id = '',
+    title = '',
+    heroImage = {
+      urlOriginal: '',
+      urlTinySized: '',
+      urlMobileSized: '',
+      urlTabletSized: '',
+      urlDesktopSized: '',
+    },
+    readingTime = 0,
+    publishTime = '',
+    style = '',
+    slug = '',
+  } = post || {}
+  return {
+    id,
+    title,
+    href: getHref(style, id, slug),
+    date: formatPostDate(publishTime),
+    readTime: formatReadTime(readingTime),
+    isReport: isReport(style),
+    img: {
+      src:
+        heroImage?.urlMobileSized ||
+        heroImage?.urlTabletSized ||
+        getAssetPath('./assets/post.svg')
+    },
+  }
 }
 
 async function fetchData(url: string) {
   try {
     const response = await fetch(url)
-    const { _items = [] } = await response.json()
-    return _items
+    const data = await response.json()
+    return data.data
   } catch (error) {
     console.error('fetchData error:', error)
     return []
@@ -80,6 +116,7 @@ async function fetchData(url: string) {
 @Component({
   tag: 'readr-latest-coverages',
   styleUrl: 'readr-latest-coverages.scss',
+  assetsDirs: ['assets'],
   scoped: true,
 })
 export class ReadrLatestCoverages {
@@ -91,37 +128,45 @@ export class ReadrLatestCoverages {
   }
 
   async componentWillLoad(): Promise<void> {
-    const items = await fetchData(DATA_URL)
-    this.coverages = items.map((item: Post) => restructureData(item))
+    const { latestPosts = [] } = await fetchData(DATA_URL)
+    this.coverages = latestPosts.map((post: Post) => restructureData(post))
   }
 
   render(): JSX.Element {
     return (
       this.coverages.length > 0 && (
         <Host>
-          <h2>更多專題</h2>
+          <div class="readr-latest-coverages__title">
+            <span class="readr-latest-coverages__title-text">最新報導</span>
+          </div>
 
-          {this.coverages.map((coverage) => (
-            <div class="coverage">
-              <a
-                href={coverage.href}
-                target="_blank"
-                onClick={this.handleClick}
-              >
-                <img src={coverage.image} alt="" />
-              </a>
-
-              <a
-                class="info"
-                href={coverage.href}
-                target="_blank"
-                onClick={this.handleClick}
-              >
-                <h3>{coverage.title}</h3>
-                <p>{coverage.publishedAt}</p>
-              </a>
-            </div>
-          ))}
+          <ul class="readr-latest-coverages__list">
+            {this.coverages.map((coverage) => (
+              <li class="readr-latest-coverages__list__item" onClick={this.handleClick}>
+                <a href={coverage.href} target="_blank">
+                  <div class="picture">
+                    <picture>
+                      <img src={coverage.img.src} alt={coverage.title} />
+                    </picture>
+                    {coverage.isReport && <label class="picture__report-label">專題</label>}
+                  </div>
+                  <div class="text">
+                    <h4>
+                      <span>{coverage.title}</span>
+                    </h4>
+                    {coverage.date && (
+                      <div class="text__info">
+                        <span class="text__info-date">{coverage.date}</span>
+                        {coverage.readTime && (
+                          <span class="text__info-readtime">{ coverage.readTime }</span>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
         </Host>
       )
     )
