@@ -70,6 +70,13 @@ export class ReadrFooter {
             >
               意見回饋
             </a>
+            <a
+              href="https://www.readr.tw/post/2901"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              服務條款
+            </a>
           </div>
           <ul class="company-info">
             <li>精鏡傳媒股份有限公司</li>
