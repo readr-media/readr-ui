@@ -84,7 +84,8 @@ export class ReadrFooter {
             <li>readr@readr.tw</li>
           </ul>
           <div class="copyright">
-            © {new Date().getFullYear()} READr All Rights Reserved
+            © {new Date().getFullYear()} 2023 精鏡傳媒股份有限公司 All Rights
+            Reserved
           </div>
         </footer>
       </Host>
