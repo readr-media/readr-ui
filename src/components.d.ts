@@ -20,6 +20,30 @@ export namespace Components {
     interface ShareNav {
     }
 }
+export interface ReadrAnnotationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLReadrAnnotationElement;
+}
+export interface ReadrDonateButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLReadrDonateButtonElement;
+}
+export interface ReadrFooterCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLReadrFooterElement;
+}
+export interface ReadrHeaderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLReadrHeaderElement;
+}
+export interface ReadrLatestCoveragesCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLReadrLatestCoveragesElement;
+}
+export interface ShareNavCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLShareNavElement;
+}
 declare global {
     interface HTMLReadrAnnotationElement extends Components.ReadrAnnotation, HTMLStencilElement {
     }
@@ -68,26 +92,26 @@ declare global {
 }
 declare namespace LocalJSX {
     interface ReadrAnnotation {
-        "onToggle"?: (event: CustomEvent<any>) => void;
+        "onToggle"?: (event: ReadrAnnotationCustomEvent<any>) => void;
         "text"?: string;
     }
     interface ReadrDonateButton {
-        "onClickButton"?: (event: CustomEvent<any>) => void;
+        "onClickButton"?: (event: ReadrDonateButtonCustomEvent<any>) => void;
     }
     interface ReadrFooter {
-        "onAboutLinkClick"?: (event: CustomEvent<any>) => void;
-        "onContactLinkClick"?: (event: CustomEvent<any>) => void;
-        "onPrivacyLinkClick"?: (event: CustomEvent<any>) => void;
+        "onAboutLinkClick"?: (event: ReadrFooterCustomEvent<any>) => void;
+        "onContactLinkClick"?: (event: ReadrFooterCustomEvent<any>) => void;
+        "onPrivacyLinkClick"?: (event: ReadrFooterCustomEvent<any>) => void;
     }
     interface ReadrHeader {
-        "onReadrLogoLinkClick"?: (event: CustomEvent<any>) => void;
+        "onReadrLogoLinkClick"?: (event: ReadrHeaderCustomEvent<any>) => void;
     }
     interface ReadrLatestCoverages {
-        "onClickCoverage"?: (event: CustomEvent<any>) => void;
+        "onClickCoverage"?: (event: ReadrLatestCoveragesCustomEvent<any>) => void;
     }
     interface ShareNav {
-        "onShareFacebookLinkClick"?: (event: CustomEvent<any>) => void;
-        "onShareLineLinkClick"?: (event: CustomEvent<any>) => void;
+        "onShareFacebookLinkClick"?: (event: ShareNavCustomEvent<any>) => void;
+        "onShareLineLinkClick"?: (event: ShareNavCustomEvent<any>) => void;
     }
     interface IntrinsicElements {
         "readr-annotation": ReadrAnnotation;
